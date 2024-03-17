@@ -32,7 +32,21 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* here custom css starts */
+.boxA {
+  width: 250px;
+}
+
+.H1 {
+  height: 150px;
+}
+.H2 {
+  height: 150px;
 }
