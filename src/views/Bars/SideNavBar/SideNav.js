@@ -4,7 +4,7 @@ import { ListGroup } from 'react-bootstrap'
 
 function SideNav() {
     return (
-        <div className='d-flex flex-column w-25 text-primary justify-content-center m-2'>
+        <div className='flex-column w-25 text-primary justify-content-center m-2'>
             <h5 className='mt-3'>HOME</h5>
             <ListGroup>
                 
