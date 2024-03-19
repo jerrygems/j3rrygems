@@ -11,24 +11,36 @@ import Blog from '../Blogs/Blog/Blog'
 import BlogList from '../Blogs/BlogList/BlogList'
 import ListNorm from '../../components/Lists/ListNorm'
 import ASB from '../NoteBooks/ASB/ASB'
+import AdminView from '../BeastPanel/AdminView'
+
+// function MainView() {
+//     return (
+//         <div className='d-flex flex-column'>
+//             <NavBar />
+//             <div className='d-flex flex-row'>
+//                 <SideNav />
+//                 {/* <Article /> */}
+//                 {/* <BlogList /> */}
+//                 <ASB />
+
+//             </div>
+//             <Footer />
+
+//             {/* <Home /> */}
+//             {/* <ArticlesList /> */}
+//             {/* <SignUp /> */}
+//             {/* <Login /> */}
+
+//         </div>
+//     )
+// }
+
+// export default MainView
 
 function MainView() {
     return (
         <div className='d-flex flex-column'>
-            <NavBar />
-            <div className='d-flex flex-row'>
-                <SideNav />
-                {/* <Article /> */}
-                {/* <BlogList /> */}
-                <ASB />
-
-            </div>
-            <Footer />
-
-            {/* <Home /> */}
-            {/* <ArticlesList /> */}
-            {/* <SignUp /> */}
-            {/* <Login /> */}
+            <AdminView />
 
         </div>
     )
