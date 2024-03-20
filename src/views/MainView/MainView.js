@@ -40,6 +40,9 @@ import AdminView from '../BeastPanel/AdminView'
 function MainView() {
     return (
         <div className='d-flex flex-column'>
+            <div style={{ zIndex: 1, width: '100%', height: '100%',backgroundColor:'black' }}>
+                <SignUp />
+            </div>
             <AdminView />
 
         </div>

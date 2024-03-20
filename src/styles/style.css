@@ -15,3 +15,14 @@
     color: white;
     transition: background 0.3s, color 0.3s;
 }
+
+.cented {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.boxy {
+    background: black;
+}
