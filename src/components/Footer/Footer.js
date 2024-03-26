@@ -10,7 +10,7 @@ function Footer() {
             </div>
             <div className='d-flex flex-wrap justify-content-around'>
                 <div className='d-flex flex-column text-start'>
-                    <small>Menu</small>
+                    <h3 className='text-muted'>Menu</h3>
                     <ListGroup className=''>
                         <ListGroup.Item className='border-0 p-1'><NavLink href='#'>Blogs</NavLink></ListGroup.Item>
                         <ListGroup.Item className='border-0 p-1'><NavLink href='#'>Article</NavLink></ListGroup.Item>
@@ -22,7 +22,7 @@ function Footer() {
                 </div>
 
                 <div className='d-flex flex-column text-start'>
-                    <small>Menu</small>
+                    {/* <small>Menu</small> */}
                     <ListGroup className=''>
                         <ListGroup.Item className='border-0 p-1'><i className='fa fa-reddit'  > <a className='text-decoration-none' href='#'>Reddit  </a></i></ListGroup.Item>
                         <ListGroup.Item className='border-0 p-1'><i className='fa fa-github'  > <a className='text-decoration-none' href='#'>Github  </a></i></ListGroup.Item>
