@@ -1,5 +1,5 @@
 import React from 'react'
-import WriteUpList from '../../../components/Lists/WriteUpsList'
+import WriteUpList from '../../components/Lists/WriteUpsList'
 
 
 function WriteUpListPage() {

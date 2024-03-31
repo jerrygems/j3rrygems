@@ -1,5 +1,5 @@
 import React from 'react'
-import CardNorm from '../../../components/Cards/CardNorm'
+import CardNorm from '../../components/Cards/CardNorm'
 
 
 function ArticlesList() {

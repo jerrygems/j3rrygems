@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-
 function CardNorm() {
     return (
             <Card className='boxA m-3 d-flex'>

@@ -1,7 +1,7 @@
 import React from 'react'
 import ListNormAdmin from '../../../comps/ListNormAdmin'
 
-function Events() {
+export default function Events() {
   return (
     <div className='w-75'>
       <h3 className='text-start m-3'>Events</h3>
@@ -17,4 +17,3 @@ function Events() {
   )
 }
 
-export default Events
