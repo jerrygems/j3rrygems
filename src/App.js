@@ -31,7 +31,7 @@ function App() {
           <NavBar />
           {/* <SignUp /> */}
           <div className='d-flex flex-row'>
-            {/* <SideNav />
+            <SideNav />
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/Articles' element={<ArticlesList />} />
@@ -43,10 +43,10 @@ function App() {
               <Route path='/ASB' element={<ASB />} />
               <Route path='/GHB' element={<GHB />} />
               <Route path='/KHB' element={<KHB />} />
-            </Routes> */}
+            </Routes>
 
             {/* admin stuff is here */}
-            <AdminSideNav />
+            {/* <AdminSideNav />
             <Routes>
               <Route path='/' element={<InsightsPanel />} />
               <Route path='/asb-panel' element={<ASBPanel/>} />
@@ -60,7 +60,7 @@ function App() {
               <Route path='/tools' element={<InsightsPanel />} />
               <Route path='/tutorials' element={<InsightsPanel />} />
               <Route path='/writeups' element={<InsightsPanel />} />
-            </Routes>
+            </Routes> */}
           </div>
           <Footer />
 
