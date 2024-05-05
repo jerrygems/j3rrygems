@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 
 function Blog() {
+    
     return (
         <div className='d-flex w-75 flex-column text-start rounded border m-3'>
             <div className='d-flex flex-column m-1'>

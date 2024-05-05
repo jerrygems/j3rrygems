@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 function CardNormAdmin() {
@@ -13,7 +14,7 @@ function CardNormAdmin() {
                     bulk of the card's content.
                 </Card.Text>
                 <div className='d-flex flex-row'>
-                    <Button className='btn btn-success m-2'><i className='fa fa-edit'></i> Edit</Button>
+                    <Button className='btn btn-success m-2'><i className='fa fa-edit'></i> <Link className='text-decoration-none text-white' to={"/blog-edit"}>Edit</Link></Button>
                     <Button className='btn btn-danger m-2'><i className='fa fa-edit'></i> Trash</Button>
                 </div>
             </Card.Body>

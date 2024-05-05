@@ -1,5 +1,6 @@
 import React from 'react'
 import { ListGroup } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function AdminSideNav() {
     return (
@@ -8,25 +9,25 @@ function AdminSideNav() {
             <hr></hr>
             <ListGroup>
 
-                <ListGroup.Item className='border-0 ls-item'>Insights</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Blogs</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>WriteUps</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Kernel Hacking</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Game Hacking</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Android Security</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Announcements</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Events</ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/"}>Insights</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/blogs-panel"}>Blogs</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/writeups"}>WriteUps</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/khb-panel"}>Kernel Hacking</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/ghb-panel"}>Game Hacking</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/asb-panel"}>Android Security</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/annoucements"}>Announcements</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/events"}>Events</Link></ListGroup.Item>
             </ListGroup>
             <hr></hr>
             <h5 className='mt-3'>Others</h5>
             <hr></hr>
             <ListGroup>
 
-                <ListGroup.Item className='border-0 ls-item'>Tutorials</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Reports</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Feedbacks</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Bugs&Fixes</ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'>Tools</ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={""}></Link>Tutorials</ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={""}></Link>Reports</ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={""}></Link>Feedbacks</ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={""}></Link>Bugs&Fixes</ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={""}></Link>Tools</ListGroup.Item>
             </ListGroup>
         </div>
     )
