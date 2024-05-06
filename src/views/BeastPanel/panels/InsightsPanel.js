@@ -1,7 +1,33 @@
-import React from 'react'
-import { Button, Tab, Table } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Button, Table } from 'react-bootstrap'
 
 function InsightsPanel() {
+
+    const [usersInfo, setUsersInfo] = useState([])
+    useEffect(() => {
+        const showData = async () => {
+            try {
+                const token = localStorage.getItem('jwt_token')
+                let request = await fetch("http://localhost:5000/users/uinfo", {
+                    method: "get",
+                    headers: {
+                        'Authorization': `${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (request.ok) {
+                    const data = await request.json()
+                    setUsersInfo(data)
+                } else {
+                    console.log("something went wrong")
+                }
+            }catch(err){
+                console.log(err)
+            }
+        }
+        showData()
+    }, [])
+
     return (
         <div className='w-75 my-2 mx-2'>
 
@@ -35,32 +61,42 @@ function InsightsPanel() {
             {/* Users table from here */}
             <h3 className='text-start mx-5 my-2'>Users</h3>
             <hr></hr>
-            <Table className='border-start border-top border-right' responsive>
+            <Table className='border-start border-top border-right overflow-scroll' responsive>
                 <thead>
                     <tr>
                         <th>uid</th>
                         <th>username</th>
                         <th>email</th>
                         <th>IPV4</th>
-                        <th>Hashes</th>
+                        <th>Phone no.</th>
+                        <th>role</th>
+                        <th>browser</th>
                         <th>Status</th>
-                        <th>timestamp</th>
+                        <th>dob</th>
                         <th>Edit</th>
                         <th>Trash</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>a1bc3fda</td>
-                        <td>johnWick</td>
-                        <td>john@gmail.com</td>
-                        <td>192.168.19.1</td>
-                        <td>$a$md5$acdfad12fdcf35</td>
-                        <td>online</td>
-                        <td>01/01/01 19:25:23 PM</td>
-                        <td><Button className='btn btn-primary'><i className='fa fa-edit'></i> Edit</Button></td>
-                        <td><Button className='btn btn-danger'><i className='fa fa-trash'></i> Trash</Button></td>
-                    </tr>
+                    {
+                        Array.isArray(usersInfo) && usersInfo.map((item, index) => (
+                            <>
+                                <tr key={index}>
+                                    <td>{item._id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.ip_addr}</td>
+                                    <td>{item.phone_no}</td>
+                                    <td>{item.role}</td>
+                                    <td>{item.browser_info}</td>
+                                    <td>online</td>
+                                    <td>{item.dob}</td>
+                                    <td><Button className='btn btn-primary'><i className='fa fa-edit'></i> Edit</Button></td>
+                                    <td><Button className='btn btn-danger'><i className='fa fa-trash'></i> Trash</Button></td>
+                                </tr>
+                            </>
+                        ))
+                    }
                 </tbody>
             </Table>
         </div>

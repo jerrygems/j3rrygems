@@ -23,6 +23,7 @@ function Login() {
             const token = data.token
             localStorage.setItem("jwt_token", token)
             console.log("login succeded ;-)")
+            console.log(token)
         } else {
             console.log("login failed ;-(")
         }
