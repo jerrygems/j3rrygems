@@ -40,7 +40,7 @@ function BlogsList() {
                 {
                     Array.isArray(blogs) && blogs.map((blog, index) => (
                         <>
-                            <CardNormAdmin key={index} blogid={blog._id} title={blog.title} description={blog.description}/>
+                            <CardNormAdmin key={index} sid={blog._id} title={blog.title} description={blog.description} strn="blog-edit"/>
                         </>
                     ))
                 }

@@ -47,6 +47,7 @@ const AdminViewComp = () => {
                 <Route path='/asb-list' element={<AdminASBList />} />
                 <Route path='/writeup-list' element={<AdminWriteUpList />} />
                 <Route path='/writeup-edit' element={<WriteUpEdit />} />
+                <Route path='/writeup-edit/:writeupid' element={<WriteUpEdit />} />
                 <Route path='/khb-edit' element={<KHBEdit />} />
                 <Route path='/khb-list' element={<AdminKHBList />} />
             </Routes>
