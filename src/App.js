@@ -40,11 +40,11 @@ function App() {
           {/* <SignUp /> */}
           <div className='d-flex flex-row'>
             {
-              isAdmin ? <>
-                {/* admin stuff is here */}
-                <AdminViewComp />
-              </> : <>
+              !isAdmin ? <>
                 <UserViewComp />
+              </> : <>
+                <AdminViewComp />
+                {/* admin stuff is here */}
               </>
             }
           </div>

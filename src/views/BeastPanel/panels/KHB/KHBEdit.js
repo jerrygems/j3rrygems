@@ -4,7 +4,77 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function KHBEdit() {
+    const { khbid } = useParams()
+    const mode = khbid ? "Update" : "Create"
+    const [chapNo, setChapNo] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [content, setContent] = useState('')
+    const [publicationDate, setPublicationDate] = useState('')
+    const [tags, setTags] = useState('')
+    const [fetched, setFetched] = useState(false)
+    const token = localStorage.getItem("jwt_token")
 
+    const handleContentChange = (value) => {
+        setContent(value)
+    }
+
+    const submitwriteup = async (e) => {
+        e.preventDefault();
+        if (!token) {
+            window.location.href = "http://localhost:3000"
+        }
+        const url = khbid ? "http://localhost:5000/khb/update" : "http://localhost:5000/khb/create"
+        let request = await fetch(url, {
+            method: khbid ? "put" : "post",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `${token}`
+            },
+            body: JSON.stringify({
+                khbid:khbid,
+                khbchapno:chapNo,
+                title: title,
+                description: description,
+                content: content,
+                publicationDate: publicationDate,
+                tags: tags,
+            })
+        })
+        if (request.ok) {
+            console.log(await request.json())
+        }
+    }
+
+    useEffect(() => {
+        const fetchwriteup = async () => {
+            try {
+                if (khbid && !fetched) {
+                    let request = await fetch(`http://localhost:5000/khb/getkhbchap/${khbid}`, {
+                        method: "get",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `${token}`,
+                            'Cache-Control': 'no-cache'
+                        },
+                    })
+                    if (request.ok) {
+                        const khbchap = await request.json()
+                        setTitle(khbchap.message.title)
+                        setChapNo(chapNo.message.title)
+                        setDescription(khbchap.message.description)
+                        setContent(khbchap.message.content)
+                        setPublicationDate(khbchap.message.publicationDate)
+                        setTags(khbchap.message.tags)
+                        setFetched(true)
+                    }
+                }
+            } catch (err) {
+                console.log("error :-( ", err)
+            }
+        }
+        fetchwriteup()
+    }, [khbid, token, fetched])
 
     const modules = {
         toolbar: [
@@ -26,53 +96,51 @@ function KHBEdit() {
             ['clipboard']
         ]
     };
-
-
     return (
         <>
             <div className='d-flex flex-column text-start'>
-                <h3 className='p-3'>KHBs Edit</h3>
+                <h3 className='p-3'>{mode} KHB Chapter</h3>
                 <form className='py-3 px-4 border rounded' >
                     <div className="form-group">
-                        <label htmlFor="content"><h4>KHB Content:</h4></label>
+                        <label htmlFor="content"><h4>Chapter Content:</h4></label>
+                        <div className="form-group px-1 py-3">
+                            <label htmlFor="title">Chapter No:</label>
+                            <input type="text" className="form-control" id="chapter" onChange={(e) => setChapNo(e.target.value)} value={chapNo} />
+                        </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="title">Title:</label>
-                            <input type="text" className="form-control" id="title" /*onChange={(e) => setTitle(e.target.value)} defaultValue={title}*/ />
+                            <input type="text" className="form-control" id="title" onChange={(e) => setTitle(e.target.value)} value={title} />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="content">Content:</label>
                             <ReactQuill
                                 theme="snow"
-                                /*value={content}*/
-                                /*onChange={handleInputChange}*/
+                                value={content}
+                                onChange={handleContentChange}
                                 className='Text-Editor'
                                 modules={modules}
                             />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="description">Description:</label>
-                            <input type="text" className="form-control" id="description" /*onChange={(e) => setDescription(e.target.value)} defaultValue={description}*/ />
+                            <input type="text" className="form-control" id="description" onChange={(e) => setDescription(e.target.value)} value={description} />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="date">Date:</label>
-                            <input className="form-control" id="title" type='date' /*onChange={(e) => setDate(e.target.value)} defaultValue={date} */ />
-                        </div>
-                        <div className="form-group px-1 py-3">
-                            <label htmlFor="author">Author:</label>
-                            <input type="text" className="form-control" id="author" /*onChange={(e) => setAuthor(e.target.value)} defaultValue={author} */ />
+                            <input className="form-control" id="title" type='date' onChange={(e) => setPublicationDate(e.target.value)} value={publicationDate} />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="keywords">Keywords:</label>
-                            <input type="text" className="form-control" id="keywords" /*onChange={(e) => setKeywords(e.target.value)} defaultValue={keywords}*/ />
+                            <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" /*onClick={updateKHBs} */><i className='fa fa-refresh p-1'></i>Update</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitwriteup}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
                 </form>
                 <br></br>
                 <div className='col'>
                     <h3 className='p-3'>Preview</h3>
                     <hr style={{ background: "black" }} />
-                    <div /*dangerouslySetInnerHTML={{ __html: content }}*/ />
+                    <div className='ql-editor' dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
             </div>
         </>

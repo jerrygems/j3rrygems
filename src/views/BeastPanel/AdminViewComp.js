@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 
 import ASBPanel from './panels/ASBPanel';
 import GHBPanel from './panels/GHBPanel'
-import KHBPanel from './panels/KHBPanel'
 import BlogsPanel from './panels/BlogsPanel'
 import BugsAndFixes from './panels/BugsAndFixes'
 import Feedbacks from './panels/Feedbacks'
@@ -33,7 +32,6 @@ const AdminViewComp = () => {
                 
                 <Route path='/asb-panel' element={<ASBPanel />} />
                 <Route path='/ghb-panel' element={<GHBPanel />} />
-                <Route path='/khb-panel' element={<KHBPanel />} />
                 <Route path='/blogs-panel' element={<BlogsPanel />} />
                 <Route path='/blog-edit' element={<BlogEdit />} />
                 <Route path='/blog-edit/:blogid' element={<BlogEdit />} />
@@ -49,6 +47,7 @@ const AdminViewComp = () => {
                 <Route path='/writeup-edit' element={<WriteUpEdit />} />
                 <Route path='/writeup-edit/:writeupid' element={<WriteUpEdit />} />
                 <Route path='/khb-edit' element={<KHBEdit />} />
+                <Route path='/khb-edit/:khbid' element={<KHBEdit />} />
                 <Route path='/khb-list' element={<AdminKHBList />} />
             </Routes>
         </>

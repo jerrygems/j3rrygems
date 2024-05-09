@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import ListNormAdmin from '../../comps/ListNormAdmin'
+import ListTypeA from '../../comps/ListTypeA'
 
 function WriteUpsList() {
     const [writeups, setWriteups] = useState([])
@@ -40,7 +40,7 @@ function WriteUpsList() {
                 {
                     Array.isArray(writeups) && writeups.map((writeup, index) => (
                         <>
-                            <ListNormAdmin key={index} sid={writeup._id} title={writeup.title} description={writeup.description} strn="writeup-edit" date={writeup.publicationDate} />
+                            <ListTypeA key={index} sid={writeup._id} title={writeup.title} description={writeup.description} strn="writeup-edit" date={writeup.publicationDate} />
                         </>
                     ))
                 }
