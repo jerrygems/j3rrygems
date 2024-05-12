@@ -19,7 +19,7 @@ function KHBEdit() {
         setContent(value)
     }
 
-    const submitwriteup = async (e) => {
+    const submitkhbchap = async (e) => {
         e.preventDefault();
         if (!token) {
             window.location.href = "http://localhost:3000"
@@ -33,7 +33,7 @@ function KHBEdit() {
             },
             body: JSON.stringify({
                 khbid:khbid,
-                khbchapno:chapNo,
+                chap_no:chapNo,
                 title: title,
                 description: description,
                 content: content,
@@ -47,7 +47,7 @@ function KHBEdit() {
     }
 
     useEffect(() => {
-        const fetchwriteup = async () => {
+        const fetchkhbchap = async () => {
             try {
                 if (khbid && !fetched) {
                     let request = await fetch(`http://localhost:5000/khb/getkhbchap/${khbid}`, {
@@ -61,11 +61,11 @@ function KHBEdit() {
                     if (request.ok) {
                         const khbchap = await request.json()
                         setTitle(khbchap.message.title)
-                        setChapNo(chapNo.message.title)
+                        setChapNo(khbchap.message.chap_no)
                         setDescription(khbchap.message.description)
                         setContent(khbchap.message.content)
                         setPublicationDate(khbchap.message.publicationDate)
-                        setTags(khbchap.message.tags)
+                        setTags(khbchap.message.keywords)
                         setFetched(true)
                     }
                 }
@@ -73,7 +73,7 @@ function KHBEdit() {
                 console.log("error :-( ", err)
             }
         }
-        fetchwriteup()
+        fetchkhbchap()
     }, [khbid, token, fetched])
 
     const modules = {
@@ -134,7 +134,7 @@ function KHBEdit() {
                             <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={submitwriteup}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitkhbchap}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
                 </form>
                 <br></br>
                 <div className='col'>
