@@ -16,12 +16,15 @@ import ASBEdit from './panels/ASB/ASBEdit'
 import AdminASBList from './panels/ASB/ASBList'
 import KHBEdit from './panels/KHB/KHBEdit';
 import AdminKHBList from './panels/KHB/KHBList'
-import AdminEventList from './panels/Events/EventList'
 import AdminGHBList from './panels/GHB/GHBList'
 // import EventEdit from './panels/Events/EventEdit'
 import InsightsPanel from './panels/InsightsPanel';
 import AdminSideNav from './comps/AdminSideNav';
 import GHBEdit from './panels/GHB/GHBEdit';
+import Announcements from './panels/Others/Anon/Announcements'
+import CreateAnon from './panels/Others/Anon/CreateAnon'
+import AdminEventList from './panels/Others/Events/Events'
+import CreateEvent from './panels/Others/Events/CreateEvent'
 
 const AdminViewComp = () => {
     return (
@@ -34,7 +37,6 @@ const AdminViewComp = () => {
                 <Route path='/blog-edit' element={<BlogEdit />} />
                 <Route path='/blog-edit/:blogid' element={<BlogEdit />} />
                 <Route path='/bugsandfixes' element={<BugsAndFixes />} />
-                <Route path='/events' element={<AdminEventList />} />
                 <Route path='/feedbacks' element={<Feedbacks />} />
                 <Route path='/reports' element={<Reports />} />
                 <Route path='/tools' element={<Tools />} />
@@ -51,6 +53,11 @@ const AdminViewComp = () => {
                 <Route path='/ghb-list' element={<AdminGHBList />} />
                 <Route path='/ghb-edit' element={<GHBEdit />} />
                 <Route path='/ghb-edit/:ghbid' element={<GHBEdit />} />
+                <Route path='/announcements' element={<Announcements />} />
+                <Route path='/anon-create' element={<CreateAnon />} />
+                <Route path='/events' element={<AdminEventList />} />
+                <Route path='/event-create' element={<CreateEvent />} />
+                
             </Routes>
         </>
     )

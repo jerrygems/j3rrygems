@@ -15,7 +15,7 @@ function AdminSideNav() {
                 <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/khb-list"}>Kernel Hacking</Link></ListGroup.Item>
                 <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/ghb-list"}>Game Hacking</Link></ListGroup.Item>
                 <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/asb-list"}>Android Security</Link></ListGroup.Item>
-                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/annoucements"}>Announcements</Link></ListGroup.Item>
+                <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/announcements"}>Announcements</Link></ListGroup.Item>
                 <ListGroup.Item className='border-0 ls-item'><Link className='text-decoration-none text-dark' to={"/events"}>Events</Link></ListGroup.Item>
             </ListGroup>
             <hr></hr>
