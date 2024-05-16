@@ -19,11 +19,11 @@ function SideNav() {
             <h5 className='mt-3'>Reports & FAQs</h5>
             <ListGroup>
 
-                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"https://www.youtube.com/@Cyb3r.Society"}>Tutorials</Link></ListGroup.Item>
+                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/Announcements"}>Announcements</Link></ListGroup.Item>
+                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/Events"}>Events</Link></ListGroup.Item>
+                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/About"}>About</Link></ListGroup.Item>
                 <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/Projects"}>Projects</Link></ListGroup.Item>
-                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/Reports"}>Reports</Link></ListGroup.Item>
-                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/FAQs"}>FAQs</Link></ListGroup.Item>
-                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"/Contacts"}>Contacts</Link></ListGroup.Item>
+                <ListGroup.Item className='ls-item'><Link className='text-decoration-none text-dark' to={"https://www.youtube.com/@Cyb3r.Society"}>Tutorials</Link></ListGroup.Item>
             </ListGroup>
         </div>
     )
