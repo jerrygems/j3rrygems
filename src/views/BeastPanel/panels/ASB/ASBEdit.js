@@ -100,18 +100,18 @@ function ASBEdit() {
     };
     return (
         <>
-            <div className='d-flex flex-column text-start'>
+            <div className='d-flex flex-column text-start txt-white'>
                 <h3 className='p-3'>{mode} Android Security Chapter</h3>
-                <form className='py-3 px-4 border rounded' >
+                <form className='py-3 px-4 m-3 cover1 rounded' >
                     <div className="form-group">
                         <label htmlFor="content"><h4>Chapter Content:</h4></label>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="title">Chapter No:</label>
-                            <input type="text" className="form-control" id="chapter" onChange={(e) => setChapNo(e.target.value)} value={chapNo} />
+                            <input type="text" className="form-control" id="chapter" placeholder='chapter' onChange={(e) => setChapNo(e.target.value)} value={chapNo} />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="title">Title:</label>
-                            <input type="text" className="form-control" id="title" onChange={(e) => setTitle(e.target.value)} value={title} />
+                            <input type="text" className="form-control" id="title" placeholder='title' onChange={(e) => setTitle(e.target.value)} value={title} />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="content">Content:</label>
@@ -125,7 +125,7 @@ function ASBEdit() {
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="description">Description:</label>
-                            <input type="text" className="form-control" id="description" onChange={(e) => setDescription(e.target.value)} value={description} />
+                            <input type="text" className="form-control" placeholder='description' id="description" onChange={(e) => setDescription(e.target.value)} value={description} />
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="date">Date:</label>
@@ -133,7 +133,7 @@ function ASBEdit() {
                         </div>
                         <div className="form-group px-1 py-3">
                             <label htmlFor="keywords">Keywords:</label>
-                            <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
+                            <input type="text" className="form-control" id="keywords" placeholder='keywords' onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={submitasbchap}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>

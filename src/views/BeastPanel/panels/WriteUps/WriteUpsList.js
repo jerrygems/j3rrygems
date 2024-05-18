@@ -30,9 +30,9 @@ function WriteUpsList() {
         showWriteup()
     }, [])
     return (
-        <div className='w-75 d-flex flex-column'>
+        <div className='w-75 m-3 d-flex flex-column'>
             <div className='d-flex flex-row mx-3 align-items-center justify-content-between'>
-                <h3 className='mx-3 my-3 text-start'>WriteUps</h3>
+                <h3 className='mx-3 my-3 text-start txt-white'>WriteUps</h3>
                 <Link className="d-flex p-2 btn btn-dark ml-5 align-items-center" to={`/writeup-edit`}><i className='fa fa-plus mx-2'></i>Create</Link>
             </div>
             <hr></hr>

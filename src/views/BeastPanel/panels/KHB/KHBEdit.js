@@ -98,9 +98,9 @@ function KHBEdit() {
     };
     return (
         <>
-            <div className='d-flex flex-column text-start'>
+            <div className='m-3 txt-white d-flex flex-column text-start'>
                 <h3 className='p-3'>{mode} KHB Chapter</h3>
-                <form className='py-3 px-4 border rounded' >
+                <form className='py-3 px-4 cover1 rounded' >
                     <div className="form-group">
                         <label htmlFor="content"><h4>Chapter Content:</h4></label>
                         <div className="form-group px-1 py-3">

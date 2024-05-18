@@ -15,20 +15,32 @@ html{
   box-shadow: -10px -5px 5px 0.1px black;
   transition: box-shadow 0.3s;
 }
-
+.invis{
+  background:transparent !important;
+}
+.table{
+  --bs-table-bg:transparent !important;
+}
+.table td,.table th{
+  color:white !important;
+}
+.list-group{
+  --bs-list-group-bg:transparent !important;
+  --bs-list-group-color:white !important;
+}
 .color1{
   background:#1d1d1d;
 }
 .cover1 {
-  background: #1d1d1d;
-  color: white;
-  box-shadow: 0px 0px 0px 0px black, 0px 0px 2px 1px black inset;
+  background: #1d1d1d !important;
+  color: white !important;
+  box-shadow: 0px 0px 0px 0px black inset, 0px 0px 10px 1px black;
   transition: box-shadow 0.2s;
 
 }
 
 .cover1:hover {
-  box-shadow: 0px 0px 5px 1px black, 0px 0px 0px 0px black inset;
+  box-shadow: 0px 0px 5px 1px black inset, 0px 0px 0px 0px black;
   transition: box-shadow 0.2s;
 }
 
@@ -101,4 +113,14 @@ html{
 
 .H3 {
   height: 80;
+}
+
+.ql-toolbar, .ql-container {
+  border:none !important;
+  border-radius: 5px !important;
+  margin:5px !important;
+  background: black !important;
+}
+.bar{
+  background:black !important;
 }

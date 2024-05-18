@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 function ListTypeB({ sid, title, description, date, strn }) {
   return (
-    <div className=' d-flex flex-row border rounded m-1'>
+    <div className='d-flex flex-row cover1 rounded m-3'>
       
       <div className='d-flex flex-column mx-5 my-2'>
         <div className='d-flex flex-column text-start w-75'>
-          <h4 >{title}<hr></hr></h4>
-          <h6 >{description}</h6>
-          <h6>{date}</h6>
+          <h4 >{title?.substring(0,40)}<hr></hr></h4>
+          <h6 >{description?.substring(0,80)}</h6>
+          <h6>{date?.substring(0,10)}</h6>
         </div>
         <hr></hr>
         <div className='d-flex flex-row align-items-center justify-content-end '>

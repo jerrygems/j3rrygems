@@ -1,21 +1,4 @@
-.ls {
-    background: black;
 
-}
-
-.ls-item {
-    background: white;
-    color: black;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
-}
-
-.ls-item:hover {
-    background: black;
-    color: white;
-    cursor:pointer;
-    transition: background 0.3s, color 0.3s;
-}
 
 .cented {
     position: absolute;

@@ -15,11 +15,11 @@ function NavBar() {
         setLoginToggle(prevstate => !prevstate)
         setSignUpToggle(false)
     }
-    
+
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container fluid>
-                <Navbar.Brand href="/">J3rrygems</Navbar.Brand>
+        <Navbar expand="lg" className="bar">
+            <Container fluid className='txt-white'>
+                <Navbar.Brand href="/" className='txt-white'>J3rrygems</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -27,16 +27,16 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/Blogs">Blogs</Nav.Link>
-                        <Nav.Link href="/Articles">Articles</Nav.Link>
-                        <NavDropdown title="Menu" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="/ASB">Android Security</NavDropdown.Item>
-                            <NavDropdown.Item href="/KHB">Kernel Hacking</NavDropdown.Item>
-                            <NavDropdown.Item href="/GHB">Game Hacking</NavDropdown.Item>
+                        <Nav.Link href="/Blogs" className='txt-white'>Blogs</Nav.Link>
+                        <Nav.Link href="/Articles" className='txt-white'>Articles</Nav.Link>
+                        <NavDropdown className='txt-white' title="Menu" id="navbarScrollingDropdown">
+                            <NavDropdown.Item className='txt-white' href="/ASB">Android Security</NavDropdown.Item>
+                            <NavDropdown.Item className='txt-white' href="/KHB">Kernel Hacking</NavDropdown.Item>
+                            <NavDropdown.Item className='txt-white' href="/GHB">Game Hacking</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/about">About Me</NavDropdown.Item>
+                            <NavDropdown.Item className='txt-white' href="/about">About Me</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#" disabled>
+                        <Nav.Link className='txt-white' href="#" disabled>
                             IRC
                         </Nav.Link>
                         <button className='m-1 btn btn-dark' onClick={signuptoggler}>Sign Up</button>

@@ -29,12 +29,12 @@ function InsightsPanel() {
     }, [])
 
     return (
-        <div className='w-75 my-2 mx-2'>
+        <div className='w-75 my-2 mx-2 txt-white'>
 
             {/* this table will contain weekly insights */}
-            <h3 className='text-start mx-5 my-2'>Insights</h3>
+            <h3 className='text-start mx-5 my-2 txt-white'>Insights</h3>
             <hr></hr>
-            <Table className='border-start border-top border-right' responsive>
+            <Table responsive className='table table-hover cover1 border-0 rounded'>
                 <thead>
                     <tr>
                         <th>Accounts Created</th>
@@ -58,10 +58,10 @@ function InsightsPanel() {
                     </tr>
                 </tbody>
             </Table>
-            {/* Users table from here */}
+
             <h3 className='text-start mx-5 my-2'>Users</h3>
             <hr></hr>
-            <Table className='border-start border-top border-right overflow-scroll' responsive>
+            <Table className='table table-hover cover1 rounded border-0 overflow-scroll' responsive>
                 <thead>
                     <tr>
                         <th>uid</th>

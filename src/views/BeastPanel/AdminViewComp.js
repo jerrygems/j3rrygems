@@ -11,13 +11,11 @@ import Tutorials from './panels/Tutorials'
 import WriteUpEdit from './panels/WriteUps/WriteUpEdit'
 import AdminWriteUpList from './panels/WriteUps/WriteUpsList'
 import BlogEdit from './panels/Blogs/BlogEdit'
-import AdminBlogList from '../Blogs/BlogList';
 import ASBEdit from './panels/ASB/ASBEdit'
 import AdminASBList from './panels/ASB/ASBList'
 import KHBEdit from './panels/KHB/KHBEdit';
 import AdminKHBList from './panels/KHB/KHBList'
 import AdminGHBList from './panels/GHB/GHBList'
-// import EventEdit from './panels/Events/EventEdit'
 import InsightsPanel from './panels/InsightsPanel';
 import AdminSideNav from './comps/AdminSideNav';
 import GHBEdit from './panels/GHB/GHBEdit';
@@ -32,7 +30,6 @@ const AdminViewComp = () => {
             <AdminSideNav/>
             <Routes>
                 <Route path='/' element={<InsightsPanel />} />
-                
                 <Route path='/blogs-panel' element={<BlogsPanel />} />
                 <Route path='/blog-edit' element={<BlogEdit />} />
                 <Route path='/blog-edit/:blogid' element={<BlogEdit />} />
