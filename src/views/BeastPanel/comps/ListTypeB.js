@@ -1,16 +1,21 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function ListTypeB({ sid, title, description, date, strn }) {
+  const { darkMode, toggleDarkMode } = useDarkMode();
+  const cover = darkMode ? 'cover1' : 'dcover1'
+  const border = darkMode ? '' : 'border'
+  const txtWhite = darkMode ? 'txt-white' : 'txt-black'
   return (
-    <div className='d-flex flex-row cover1 rounded m-3'>
-      
+    <div className={`d-flex flex-row ${cover} ${border} rounded m-3`}>
+
       <div className='d-flex flex-column mx-5 my-2'>
         <div className='d-flex flex-column text-start w-75'>
-          <h4 >{title?.substring(0,40)}<hr></hr></h4>
-          <h6 >{description?.substring(0,80)}</h6>
-          <h6>{date?.substring(0,10)}</h6>
+          <h4 >{title?.substring(0, 40)}<hr></hr></h4>
+          <h6 >{description?.substring(0, 80)}</h6>
+          <h6>{date?.substring(0, 10)}</h6>
         </div>
         <hr></hr>
         <div className='d-flex flex-row align-items-center justify-content-end '>

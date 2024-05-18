@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
+import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function InsightsPanel() {
 
     const [usersInfo, setUsersInfo] = useState([])
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     useEffect(() => {
         const showData = async () => {
             try {
@@ -21,7 +25,7 @@ function InsightsPanel() {
                 } else {
                     console.log("something went wrong")
                 }
-            }catch(err){
+            } catch (err) {
                 console.log(err)
             }
         }
@@ -29,12 +33,12 @@ function InsightsPanel() {
     }, [])
 
     return (
-        <div className='w-75 my-2 mx-2 txt-white'>
+        <div className={`w-75 my-2 mx-2 ${txtWhite}`}>
 
             {/* this table will contain weekly insights */}
-            <h3 className='text-start mx-5 my-2 txt-white'>Insights</h3>
+            <h3 className={`text-start mx-5 my-2 ${txtWhite}`}>Insights</h3>
             <hr></hr>
-            <Table responsive className='table table-hover cover1 border-0 rounded'>
+            <Table responsive className={`${darkMode?'table-dark':'table'} table-hover ${cover} ${txtWhite} border-0 rounded`}>
                 <thead>
                     <tr>
                         <th>Accounts Created</th>
@@ -61,7 +65,7 @@ function InsightsPanel() {
 
             <h3 className='text-start mx-5 my-2'>Users</h3>
             <hr></hr>
-            <Table className='table table-hover cover1 rounded border-0 overflow-scroll' responsive>
+            <Table className={`${darkMode?'table-dark':'table'} table-hover ${cover} ${txtWhite} border-0 rounded overflow-scroll`} responsive>
                 <thead>
                     <tr>
                         <th>uid</th>

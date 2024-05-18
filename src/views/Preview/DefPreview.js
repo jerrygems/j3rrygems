@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
+import { useDarkMode } from '../../components/Context/DarkModeProvider'
 
 function DefPreview() {
     const { str1, str2, sid } = useParams()
     const [post, setPost] = useState({})
-    console.log(sid, str1, str2)
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const border = darkMode ? '' : 'border'
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
+
     useEffect(() => {
         const showPost = async () => {
             try {
@@ -32,7 +37,7 @@ function DefPreview() {
 
     return (
         <>
-            <div className='d-flex w-75 flex-column text-start rounded cover1 mx-3 mb-3 mt-5'>
+            <div className={`d-flex w-75 flex-column text-start rounded ${cover} ${border} mx-3 mb-3 mt-5`}>
                 <div className='d-flex flex-column m-1'>
                     <h4 className='m-2'>{post.title}</h4>
                     <small className='m-2'>Date : {post.publicationDate?.slice(0, 10)}</small>

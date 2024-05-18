@@ -1,14 +1,18 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 
 function CardNormAdmin({ sid, title, description, strn }) {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (
-        <Card className='d-flex m-3 cover1' style={{ minHeight: '230px', maxHeight: '300px', width: '350px' }} >
+        <Card className={`d-flex m-3 ${cover}`} style={{ minHeight: '230px', maxHeight: '300px', width: '350px' }} >
             <Card.Body>
-                <Card.Title className='text-start txt-white'>{title?.substring(0, 40)}</Card.Title><hr />
-                <Card.Text className='text-start txt-white'>
+                <Card.Title className={`text-start ${txtWhite}`}>{title?.substring(0, 40)}</Card.Title><hr />
+                <Card.Text className={`text-start ${txtWhite}`}>
                     {description?.substring(0, 80)}
                 </Card.Text>
                 <div className='position-relative bottom-0 m-auto'>

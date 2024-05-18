@@ -1,8 +1,13 @@
 import React from 'react';
+import { useDarkMode } from '../../components/Context/DarkModeProvider';
 
 function About() {
+  const { darkMode, toggleDarkMode } = useDarkMode();
+  const cover = darkMode ? 'cover1' : 'dcover1'
+  const border = darkMode ? '' : 'border'
+  const txtWhite = darkMode ? 'txt-white' : 'text-black'
   return (
-    <div className='d-flex flex-column cover1 rounded p-1 m-3 w-75'>
+    <div className={`d-flex flex-column ${cover} ${border} rounded p-1 m-3 w-75`}>
       <h2 className='mt-3'>About Me</h2>
       <hr />
       <p><b>CTF Player || MERN Stack || React Native || DevOps || Linux Administration & Automation || AI & ML enthusiast || Linux Ricer</b></p>

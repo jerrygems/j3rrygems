@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Container, Form, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { useDarkMode } from '../Context/DarkModeProvider';
 import Login from '../Forms/Login'
 import SignUp from '../Forms/SignUp'
+import { Link } from 'react-router-dom';
 
 function NavBar() {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const bg = darkMode ? 'bg-dark' : 'bg-body-tertiary'
+    const txtWhite = darkMode ? 'txt-white' : 'text-black'
+
     const [SignUpToggle, setSignUpToggle] = useState(false)
     const [LoginToggle, setLoginToggle] = useState(false)
     const signuptoggler = () => {
@@ -17,9 +23,9 @@ function NavBar() {
     }
 
     return (
-        <Navbar expand="lg" className="bar">
-            <Container fluid className='txt-white'>
-                <Navbar.Brand href="/" className='txt-white'>J3rrygems</Navbar.Brand>
+        <Navbar expand="lg" className={`${bg}`}>
+            <Container fluid>
+                <Navbar.Brand href="/" className={`${txtWhite}`}>J3rrygems</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -27,29 +33,23 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/Blogs" className='txt-white'>Blogs</Nav.Link>
-                        <Nav.Link href="/Articles" className='txt-white'>Articles</Nav.Link>
-                        <NavDropdown className='txt-white' title="Menu" id="navbarScrollingDropdown">
-                            <NavDropdown.Item className='txt-white' href="/ASB">Android Security</NavDropdown.Item>
-                            <NavDropdown.Item className='txt-white' href="/KHB">Kernel Hacking</NavDropdown.Item>
-                            <NavDropdown.Item className='txt-white' href="/GHB">Game Hacking</NavDropdown.Item>
+                        <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Blogs'}>Blogs</Link></Nav.Link>
+                        <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Articles'}>Articles</Link></Nav.Link>
+                        <NavDropdown title="Menu" id="navbarScrollingDropdown">
+                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Android Security</Link></NavDropdown.Item>
+                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/KHB'}>Kernel Hacking</Link></NavDropdown.Item>
+                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Game Hacking</Link></NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item className='txt-white' href="/about">About Me</NavDropdown.Item>
+                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/about'}>About Me</Link></NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className='txt-white' href="#" disabled>
-                            IRC
+                        <Nav.Link className={`${txtWhite}`}>
+                        <Link className={`${txtWhite} text-decoration-none`} to={'/IRC'}>IRC</Link>
                         </Nav.Link>
                         <button className='m-1 btn btn-dark' onClick={signuptoggler}>Sign Up</button>
                         <button className='m-1 btn btn-dark' onClick={logintoggler}>Login</button>
                     </Nav>
                     <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placeholder="Search Here"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success"><i className='fa fa-search'></i></Button>
+                        <Button variant="outline-success" onClick={toggleDarkMode}><i className='fa fa-moon-o'></i></Button>
                     </Form>
                 </Navbar.Collapse>
                 {SignUpToggle && <SignUp />}

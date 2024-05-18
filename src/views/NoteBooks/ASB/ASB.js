@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ListNorm from '../../../components/Lists/ListNorm'
+import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function ASB() {
     const [asb, setASB] = useState([])
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'text-black'
 
     useEffect(() => {
         const showASB = async () => {
@@ -26,14 +31,14 @@ function ASB() {
     }, [])
     return (
         <div className='w-75 m-4'>
-            <div className='text-start mx-2 my-1 txt-white'>
+            <div className={`text-start mx-2 my-1 ${txtWhite}`}>
                 <h3>Android Security Book</h3>
             </div>
             <hr></hr>
             <div className='d-flex flex-column'>
                 {
                     Array.isArray(asb) && asb.map((asb, index) => (
-                        <ListNorm key={index} sid={asb._id} str1="asb" str2="getasbchap" title={asb.title} description={asb.description} date={asb.publicationDate}  />
+                        <ListNorm key={index} sid={asb._id} str1="asb" str2="getasbchap" title={asb.title} description={asb.description} date={asb.publicationDate} />
                     ))
                 }
             </div>

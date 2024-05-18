@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ListTypeB from '../../comps/ListTypeB'
+import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function KHBList() {
     const [khb, setKHB] = useState([])
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
     useEffect(() => {
         const showKHB = async () => {
@@ -32,7 +37,7 @@ function KHBList() {
     return (
         <div className='w-75 d-flex flex-column'>
             <div className='d-flex flex-row mx-3 align-items-center justify-content-between'>
-                <h3 className='mx-3 my-3 text-start txt-white'>Kernel Hacking Chapters</h3>
+                <h3 className={`mx-3 my-3 text-start ${txtWhite}`}>Kernel Hacking Chapters</h3>
                 <Link className="d-flex p-2 btn btn-dark ml-5 align-items-center" to={`/khb-edit`}><i className='fa fa-plus mx-2'></i>Create</Link>
             </div>
             <hr></hr>

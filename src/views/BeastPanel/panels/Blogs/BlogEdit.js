@@ -3,8 +3,14 @@ import { useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { jwtDecode } from 'jwt-decode';
+import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function BlogEdit() {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
+
     const { blogid } = useParams()
     const mode = blogid ? "Update" : "Create"
     const [title, setTitle] = useState('')
@@ -32,7 +38,7 @@ function BlogEdit() {
                 "Authorization": `${token}`
             },
             body: JSON.stringify({
-                blogid:blogid,
+                blogid: blogid,
                 title: title,
                 description: description,
                 content: content,
@@ -96,9 +102,9 @@ function BlogEdit() {
     };
     return (
         <>
-            <div className='d-flex flex-column text-start txt-white m-3'>
+            <div className={`d-flex flex-column text-start ${txtWhite} m-3`}>
                 <h3 className='p-3'>{mode} Blog</h3>
-                <form className='py-3 px-4 cover1 rounded' >
+                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <label htmlFor="content"><h4>Blog Content:</h4></label>
                         <div className="form-group px-1 py-3">
@@ -111,7 +117,7 @@ function BlogEdit() {
                                 theme="snow"
                                 value={content}
                                 onChange={handleContentChange}
-                                className='Text-Editor'
+                                className={`Text-Editor ${darkMode?'dark-mode':''}`}
                                 modules={modules}
                             />
                         </div>

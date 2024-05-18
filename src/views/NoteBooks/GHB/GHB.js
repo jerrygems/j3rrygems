@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ListNorm from '../../../components/Lists/ListNorm'
+import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function GHB() {
     const [ghb, setGHB] = useState([])
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'text-black'
 
     useEffect(() => {
         const showGHB = async () => {
@@ -26,7 +31,7 @@ function GHB() {
     }, [])
     return (
         <div className='w-75 m-4'>
-            <div className='text-start mx-2 my-1 txt-white'>
+            <div className={`text-start mx-2 my-1 ${txtWhite}`}>
                 <h3>Game Hacking Book</h3>
             </div>
             <hr></hr>
