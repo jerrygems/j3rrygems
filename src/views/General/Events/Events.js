@@ -25,11 +25,12 @@ function Events() {
         showEvent()
     }, [])
     return (
-        <div className='d-flex flex-column border rounded w-75 m-3'>
+        <div className='d-flex flex-column rounded w-75 m-3'>
             {
                 Array.isArray(event) && event.map((event, index) => (
-                    <div className='d-flex flex-column text-center w-100 border rounded m-1'>
-                        <h5 className='p-1'>{event.title}</h5>
+                    <div className='d-flex flex-column text-center w-100 cover1 rounded m-1'>
+                        <h5 className='mt-4'>{event.title}</h5>
+                        <hr></hr>
                         <p className='m-1 ql-editor d-flex flex-wrap' dangerouslySetInnerHTML={{ __html: event.content }}></p>
                     </div>
                 ))

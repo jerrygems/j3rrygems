@@ -26,7 +26,7 @@ function KHB() {
     }, [])
     return (
         <div className='w-75 m-4'>
-            <div className='text-start mx-2 my-1'>
+            <div className='text-start mx-2 my-1 txt-white'>
                 <h3>Kernel Hacking Book</h3>
             </div>
             <hr></hr>

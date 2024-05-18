@@ -31,26 +31,27 @@ function DefPreview() {
 
 
     return (
-        <div className='d-flex w-75 flex-column text-start rounded border m-3'>
-            <div className='d-flex flex-column m-1'>
-                <h4 className='m-2'>{post.title}</h4>
-                <small className='m-2 text-muted'>Date : {post.publicationDate}</small>
+        <>
+            <div className='d-flex w-75 flex-column text-start rounded cover1 mx-3 mb-3 mt-5'>
+                <div className='d-flex flex-column m-1'>
+                    <h4 className='m-2'>{post.title}</h4>
+                    <small className='m-2'>Date : {post.publicationDate?.slice(0, 10)}</small>
+                </div>
+                <hr></hr>
+                <div className='d-flex flex-column m-1'>
+                    <p className='m-2'><b>Description : </b>{post.description}</p>
+                    <p className='m-3 ql-editor' dangerouslySetInnerHTML={{ __html: post.content }}></p>
+                </div>
+                <hr></hr>
+                <div className='d-flex flex-wrap m-1'>
+                    <Button className='m-2' variant='dark'>Keyword 1</Button>
+                </div>
+                <hr></hr>
+                <div className='d-flex flex-column m-1'>
+                    <small className='m-2'>Authors : {post.author?.name}</small>
+                </div>
             </div>
-            <hr></hr>
-            <div className='d-flex flex-column m-1'>
-                <p className='m-2'><b>Description : </b>{post.description}</p>
-                <p className='m-3 ql-editor' dangerouslySetInnerHTML={{ __html: post.content }}></p>
-            </div>
-            <hr></hr>
-            <div className='d-flex flex-wrap m-1'>
-                <Button className='m-2' variant='dark'>Keyword 1</Button>
-            </div>
-            <hr></hr>
-            <div className='d-flex flex-column m-1'>
-                <small className='m-2 text-muted'>Authors : {post.author}</small>
-                <small className='m-2 text-muted'>Modified By : </small>
-            </div>
-        </div>
+        </>
     )
 }
 

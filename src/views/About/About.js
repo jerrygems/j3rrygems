@@ -2,13 +2,14 @@ import React from 'react';
 
 function About() {
   return (
-    <div className='d-flex flex-column border rounded p-1 m-3 w-75'>
+    <div className='d-flex flex-column cover1 rounded p-1 m-3 w-75'>
       <h2 className='mt-3'>About Me</h2>
       <hr />
       <p><b>CTF Player || MERN Stack || React Native || DevOps || Linux Administration & Automation || AI & ML enthusiast || Linux Ricer</b></p>
-
+      <hr />
       <h3>Skills</h3>
-      <ul className='text-start border rounded m-3 py-3'>
+      <hr />
+      <ul className='text-start rounded m-3 py-3'>
         <li>
           <b>CTF Player:</b> Practices through vulnerable labs on TryHackMe. You can find me as <a href="https://tryhackme.com/p/Sp1d3y">Sp1d3y</a>.
         </li>
@@ -42,15 +43,15 @@ function About() {
       </ul>
 
 
-      <p>
+      <p className='mx-5'>
         I'm constantly exploring new technologies and methodologies to stay ahead in the ever-evolving tech landscape.
         Let's connect and collaborate on exciting projects!
       </p>
       <div className='d-flex flex-row w-100 justify-content-center'>
-        <a className='text-decoration-none text-dark m-3 h4' href="#"><i className='fa fa-github'></i></a>
-        <a className='text-decoration-none text-dark m-3 h4' href="#"><i className='fa fa-reddit'></i></a>
-        <a className='text-decoration-none text-dark m-3 h4' href="#"><i className='fa fa-twitter'></i></a>
-        <a className='text-decoration-none text-dark m-3 h4' href="#"><i className='fa fa-linkedin'></i></a>
+        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-github'></i></a>
+        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-reddit'></i></a>
+        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-twitter'></i></a>
+        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-linkedin'></i></a>
       </div>
     </div>
   );

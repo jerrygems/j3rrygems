@@ -25,11 +25,12 @@ function Announcements() {
         showAnon()
     }, [])
     return (
-        <div className='d-flex flex-column border rounded w-75 m-3'>
+        <div className='d-flex flex-column rounded w-75 m-3'>
             {
                 Array.isArray(anon) && anon.map((anon, index) => (
-                    <div className='d-flex flex-column text-center w-100 border rounded m-1'>
-                        <h5 className='p-1'>{anon.title}</h5>
+                    <div className='d-flex flex-column text-center w-100 rounded m-1 cover1'>
+                        <h5 className='mt-4'>{anon.title}</h5>
+                        <hr></hr>
                         <p className='m-1 ql-editor d-flex flex-wrap' dangerouslySetInnerHTML={{ __html: anon.content }}></p>
                     </div>
                 ))

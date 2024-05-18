@@ -27,7 +27,7 @@ function WriteUpListPage() {
     }, [])
 
     return (
-        <div className='d-flex flex-wrap w-75 justify-content-start m-5 border rounded'>
+        <div className='d-flex flex-wrap w-75 justify-content-start m-5 rounded'>
             {
                 Array.isArray(writeups) && writeups.map((writeup, index) => (
                     <WriteUpList key={index} str1="writeups" str2="getwriteup" sid={writeup._id} title={writeup.title} description={writeup.description} date={writeup.publicationDate} author={writeup.author} />

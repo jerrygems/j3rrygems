@@ -31,10 +31,10 @@ function BlogList() {
         showBlog()
     }, [])
     return (
-        <div className='d-flex flex-wrap w-75 justify-content-start m-5 border rounded'>
+        <div className='d-flex flex-wrap w-75 justify-content-start m-5 rounded '>
             {
                 Array.isArray(blogs) && blogs.map((blog, index) => (
-                    <CardNorm key={index} sid={blog._id} str1="blogs" str2="getblog" title={blog.title} description={blog.description} />
+                    <CardNorm key={index} sid={blog._id} str1="blogs" str2="getblog" title={blog.title} description={blog.description} author={blog.author?.name} />
                 ))
             }
         </div>

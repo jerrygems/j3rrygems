@@ -19,7 +19,7 @@ function NavBar() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#">J3rrygems</Navbar.Brand>
+                <Navbar.Brand href="/">J3rrygems</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -34,15 +34,13 @@ function NavBar() {
                             <NavDropdown.Item href="/KHB">Kernel Hacking</NavDropdown.Item>
                             <NavDropdown.Item href="/GHB">Game Hacking</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action6">About Me</NavDropdown.Item>
-                            <NavDropdown.Item href="#action7">Contacts</NavDropdown.Item>
+                            <NavDropdown.Item href="/about">About Me</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#action2">Social Links</Nav.Link>
                         <Nav.Link href="#" disabled>
                             IRC
                         </Nav.Link>
-                        <button className='mx-3 btn btn-dark' onClick={signuptoggler}>Sign Up</button>
-                        <button className='mx-1 btn btn-dark' onClick={logintoggler}>Login</button>
+                        <button className='m-1 btn btn-dark' onClick={signuptoggler}>Sign Up</button>
+                        <button className='m-1 btn btn-dark' onClick={logintoggler}>Login</button>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import NavBar from './components/Navbar/NavBar';
 // import SideNav from './views/Bars/SideNavBar/SideNav';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
