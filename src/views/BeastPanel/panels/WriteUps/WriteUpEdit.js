@@ -102,9 +102,9 @@ function WriteUpEdit() {
     };
     return (
         <>
-            <div className={`m-3 d-flex flex-column text-start ${txtWhite} `}>
+            <div className={`d-flex flex-column text-start ${txtWhite} `}>
                 <h3 className='p-3'>{mode} WriteUp</h3>
-                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
+                <form className={`py-3 px-4 edform ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <label htmlFor="content"><h4>writeup Content:</h4></label>
                         <div className="form-group px-1 py-3">

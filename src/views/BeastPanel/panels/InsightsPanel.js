@@ -3,7 +3,7 @@ import { Button, Table } from 'react-bootstrap'
 import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function InsightsPanel() {
-
+    const [screenWidth] = useState(window.innerWidth);
     const [usersInfo, setUsersInfo] = useState([])
     const { darkMode, toggleDarkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
@@ -33,12 +33,12 @@ function InsightsPanel() {
     }, [])
 
     return (
-        <div className={`w-75 my-2 mx-2 ${txtWhite}`}>
+        <div className={` my-2 ${txtWhite} ${screenWidth < 1000 ? 'w-100' : 'w-75'} `}>
 
             {/* this table will contain weekly insights */}
-            <h3 className={`text-start mx-5 my-2 ${txtWhite}`}>Insights</h3>
+            <h3 className={`text-start mx-2 my-2 ${txtWhite}`}>Insights</h3>
             <hr></hr>
-            <Table responsive className={`${darkMode?'table-dark':'table'} table-hover ${cover} ${txtWhite} border-0 rounded`}>
+            <Table responsive className={`${darkMode ? 'table-dark' : 'table'} table-hover ${cover} ${txtWhite} border-0 rounded`}>
                 <thead>
                     <tr>
                         <th>Accounts Created</th>
@@ -46,7 +46,7 @@ function InsightsPanel() {
                         <th>Timespent per user</th>
                         <th>male</th>
                         <th>female</th>
-                        <th>Avg Visits</th>{/*avg visit per user*/}
+                        <th>Avg Visits</th>
                         <th>Posts Viewed</th>
                     </tr>
                 </thead>
@@ -65,7 +65,7 @@ function InsightsPanel() {
 
             <h3 className='text-start mx-5 my-2'>Users</h3>
             <hr></hr>
-            <Table className={`${darkMode?'table-dark':'table'} table-hover ${cover} ${txtWhite} border-0 rounded overflow-scroll`} responsive>
+            <Table className={`${darkMode ? 'table-dark' : 'table'} table-hover ${cover} ${txtWhite} border-0 rounded overflow-scroll`} responsive>
                 <thead>
                     <tr>
                         <th>uid</th>

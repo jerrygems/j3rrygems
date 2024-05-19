@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import CardNorm from '../../components/Cards/CardNorm'
+import { useDarkMode } from '../../components/Context/DarkModeProvider';
 
 
 function BlogList() {
-
+    const { darkMode } = useDarkMode();
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     const [blogs, setBlogs] = useState([])
 
     useEffect(() => {
@@ -33,7 +35,7 @@ function BlogList() {
     return (
         <div className='d-flex flex-column text-start content-box justify-content-start m-3 rounded '>
             <div className='d-flex flex-column'>
-                <h2>Blogs</h2>
+                <h2 className={`${txtWhite}`}>Blogs</h2>
                 <hr></hr>
             </div>
             <div className='w-100 d-flex flex-wrap'>

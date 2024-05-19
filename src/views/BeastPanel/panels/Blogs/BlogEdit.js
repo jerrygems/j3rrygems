@@ -104,7 +104,7 @@ function BlogEdit() {
         <>
             <div className={`d-flex flex-column text-start ${txtWhite} m-3`}>
                 <h3 className='p-3'>{mode} Blog</h3>
-                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
+                <form className={`py-3 px-4 edform ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <label htmlFor="content"><h4>Blog Content:</h4></label>
                         <div className="form-group px-1 py-3">

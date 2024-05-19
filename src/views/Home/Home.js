@@ -46,31 +46,31 @@ function Home() {
                             if (item.source === "blogs") {
                                 return (
                                     <ListGroup.Item key={index} className='d-flex flex-column bg-transparent border-0'>
-                                        <ListNorm sid={item._id} str1='blogs' str2='getblog' title={item.title} description={item.description} date={item.publicationDate} />
+                                        <ListNorm sid={item._id} str1='blogs' str2='blog' title={item.title} description={item.description} date={item.publicationDate} />
                                     </ListGroup.Item>
                                 );
                             } else if (item.source === "ghb") {
                                 return (
                                     <ListGroup.Item key={index} className='d-flex flex-column bg-transparent border-0'>
-                                        <ListNorm sid={item._id} str1='ghb' str2='getghbchap' title={item.title} description={item.description} date={item.publicationDate} />
+                                        <ListNorm sid={item._id} str1='ghb' str2='ghbchap' title={item.title} description={item.description} date={item.publicationDate} />
                                     </ListGroup.Item>
                                 );
                             } else if (item.source === "khb") {
                                 return (
                                     <ListGroup.Item key={index} className='d-flex flex-column bg-transparent border-0'>
-                                        <ListNorm sid={item._id} str1='khb' str2='getkhbchap' title={item.title} description={item.description} date={item.publicationDate} />
+                                        <ListNorm sid={item._id} str1='khb' str2='khbchap' title={item.title} description={item.description} date={item.publicationDate} />
                                     </ListGroup.Item>
                                 );
                             } else if (item.source === "asb") {
                                 return (
                                     <ListGroup.Item key={index} className='d-flex flex-column bg-transparent border-0'>
-                                        <ListNorm sid={item._id} str1='asb' str2='getasbchap' title={item.title} description={item.description} date={item.publicationDate} />
+                                        <ListNorm sid={item._id} str1='asb' str2='asbchap' title={item.title} description={item.description} date={item.publicationDate} />
                                     </ListGroup.Item>
                                 );
                             } else if (item.source === "writeups") {
                                 return (
                                     <ListGroup.Item key={index} className='d-flex flex-column bg-transparent border-0'>
-                                        <ListNorm sid={item._id} str1='writeups' str2='getwriteup' title={item.title} description={item.description} date={item.publicationDate} />
+                                        <ListNorm sid={item._id} str1='writeups' str2='writeup' title={item.title} description={item.description} date={item.publicationDate} />
                                     </ListGroup.Item>
                                 );
                             } else {

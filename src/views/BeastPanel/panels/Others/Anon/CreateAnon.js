@@ -71,7 +71,7 @@ function CreateAnon() {
         <>
             <div className={`m-3 ${txtWhite} d-flex flex-column text-start`}>
                 <h3 className='p-3'>Create Announcements</h3>
-                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
+                <form className={`py-3 px-4 edform ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <div className="form-group px-1 py-3">
                             <label htmlFor="title">Title:</label>

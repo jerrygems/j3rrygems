@@ -6,8 +6,6 @@ import { useDarkMode } from '../../components/Context/DarkModeProvider';
 function WriteUpListPage() {
     const [writeups, setWriteups] = useState([])
     const { darkMode, toggleDarkMode } = useDarkMode();
-    const cover = darkMode ? 'cover1' : 'dcover1'
-    const border = darkMode ? '' : 'border'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     useEffect(() => {
         const showWriteups = async () => {

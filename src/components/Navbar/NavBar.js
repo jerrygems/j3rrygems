@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Form, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import { useDarkMode } from '../Context/DarkModeProvider';
 import Login from '../Forms/Login'
@@ -10,6 +10,8 @@ function NavBar() {
     const bg = darkMode ? 'bg-dark' : 'bg-body-tertiary'
     const txtWhite = darkMode ? 'txt-white' : 'text-black'
     const dk = darkMode ? 'dark' : 'nondark'
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
     const [SignUpToggle, setSignUpToggle] = useState(false)
     const [LoginToggle, setLoginToggle] = useState(false)
@@ -23,6 +25,21 @@ function NavBar() {
         setSignUpToggle(false)
     }
 
+    useEffect(() => {
+        const token = localStorage.getItem('jwt_token');
+        if (token) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, []);
+    const handleLogout = () => {
+        localStorage.removeItem('jwt_token');
+        setIsLoggedIn(false);
+        setSignUpToggle(false);
+        setLoginToggle(false);
+        window.location.href='http://192.168.29.169:3000/'
+    };
     return (
         <Navbar expand="lg" className={`${bg} ${dk}`}>
             <Container fluid>
@@ -44,10 +61,17 @@ function NavBar() {
                             <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/about'}>About Me</Link></NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link className={`${txtWhite}`}>
-                        <Link className={`${txtWhite} text-decoration-none`} to={'/IRC'}>IRC</Link>
+                            <Link className={`${txtWhite} text-decoration-none`} to={'/IRC'}>IRC</Link>
                         </Nav.Link>
-                        <button className='m-1 btn btn-dark' onClick={signuptoggler}>Sign Up</button>
-                        <button className='m-1 btn btn-dark' onClick={logintoggler}>Login</button>
+                        {!isLoggedIn && (
+                            <>
+                                <button className='m-1 btn btn-dark' onClick={signuptoggler}>Sign Up</button>
+                                <button className='m-1 btn btn-dark' onClick={logintoggler}>Login</button>
+                            </>
+                        )}
+                        {isLoggedIn && (
+                            <Button className='btn btn-dark' onClick={handleLogout}>Logout</Button>
+                        )}
                     </Nav>
                     <Form className="d-flex">
                         <Button variant="outline-success" onClick={toggleDarkMode}><i className='fa fa-moon-o'></i></Button>

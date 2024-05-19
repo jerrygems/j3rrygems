@@ -35,7 +35,7 @@ function Announcements() {
         showAnon()
     }, [])
     return (
-        <div className='w-75 d-flex flex-column'>
+        <div className={`${window.innerWidth<1000 ? 'w-100':'w-75'} d-flex flex-column`}>
             <div className='d-flex flex-row mx-3 align-items-center justify-content-between'>
                 <h3 className={`mx-3 my-3 text-start ${txtWhite}`}>Announcements</h3>
                 <Link className="d-flex p-2 btn btn-dark ml-5 align-items-center" to={`/anon-create`}><i className='fa fa-plus mx-2'></i>Create</Link>

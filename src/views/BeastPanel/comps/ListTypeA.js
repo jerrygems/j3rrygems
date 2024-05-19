@@ -9,7 +9,7 @@ function ListTypeA({ sid, title, description, date, strn }) {
   const border = darkMode ? '' : 'border'
   const txtWhite = darkMode ? 'txt-white' : 'txt-black'
   return (
-    <div className={`d-flex flex-row ${cover} ${border} rounded m-1`} style={{ width: '340px' }}>
+    <div className={`d-flex flex-row ${cover} ${border} rounded m-3`} style={{ width: '340px' }}>
       <div className='row mx-5 my-2'>
         <div className='d-flex flex-column text-start'>
           <h4 >{title?.substring(0, 40)}<hr></hr></h4>
