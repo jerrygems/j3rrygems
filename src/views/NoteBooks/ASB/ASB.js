@@ -12,7 +12,7 @@ function ASB() {
     useEffect(() => {
         const showASB = async () => {
             try {
-                let request = await fetch("http://localhost:5000/asb/getasbchaps", {
+                let request = await fetch("http://192.168.29.169:5000/asb/asbchaps", {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function ASB() {
         showASB()
     }, [])
     return (
-        <div className='w-75 m-4'>
+        <div className='content-box m-4'>
             <div className={`text-start mx-2 my-1 ${txtWhite}`}>
                 <h3>Android Security Book</h3>
             </div>
@@ -38,7 +38,7 @@ function ASB() {
             <div className='d-flex flex-column'>
                 {
                     Array.isArray(asb) && asb.map((asb, index) => (
-                        <ListNorm key={index} sid={asb._id} str1="asb" str2="getasbchap" title={asb.title} description={asb.description} date={asb.publicationDate} />
+                        <ListNorm key={index} sid={asb._id} str1="asb" str2="asbchap" title={asb.title} description={asb.description} date={asb.publicationDate} />
                     ))
                 }
             </div>

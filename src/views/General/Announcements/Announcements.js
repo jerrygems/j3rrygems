@@ -10,7 +10,7 @@ function Announcements() {
     useEffect(() => {
         const showAnon = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/announcements/getannouncements`, {
+                let request = await fetch(`http://192.168.29.169:5000/announcements/announcements`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function Announcements() {
         showAnon()
     }, [])
     return (
-        <div className='d-flex flex-column rounded w-75 m-3'>
+        <div className='d-flex flex-column rounded content-box m-3'>
             {
                 Array.isArray(anon) && anon.map((anon, index) => (
                     <div className={`d-flex flex-column text-center w-100 rounded m-1 ${cover} ${border}`}>

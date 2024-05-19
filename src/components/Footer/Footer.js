@@ -1,6 +1,7 @@
 import React from 'react'
 import { ListGroup, NavLink } from 'react-bootstrap'
 import { useDarkMode } from '../Context/DarkModeProvider';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -16,12 +17,11 @@ function Footer() {
                 <div className='d-flex flex-column text-start'>
                     <h3 className={`${txtWhite}`}>Menu</h3>
                     <ListGroup className=''>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><a className={`${txtWhite}`}>Blogs</a></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><a className={`${txtWhite}`}>Articles</a></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><a className={`${txtWhite}`}>WriteUps</a></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><a className={`${txtWhite}`}>Android Security</a></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><a className={`${txtWhite}`}>Game Hacking</a></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><a className={`${txtWhite}`}>Kernel Hacking</a></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><Link className={`${txtWhite} text-decoration-none`} to={'/Blogs'}>Blogs</Link></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><Link className={`${txtWhite} text-decoration-none`} to={'/Writeups'}>WriteUps</Link></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><Link className={`${txtWhite} text-decoration-none`} to={'/ASB'}>Android Security</Link></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><Link className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Game Hacking</Link></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><Link className={`${txtWhite} text-decoration-none`} to={'/KHB'}>Kernel Hacking</Link></ListGroup.Item>
                     </ListGroup>
                 </div>
 

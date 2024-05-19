@@ -14,7 +14,7 @@ function DefPreview() {
     useEffect(() => {
         const showPost = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/${str1}/${str2}/${sid}`, {
+                let request = await fetch(`http://192.168.29.169:5000/${str1}/${str2}/${sid}`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ function DefPreview() {
 
     return (
         <>
-            <div className={`d-flex w-75 flex-column text-start rounded ${cover} ${border} mx-3 mb-3 mt-5`}>
+            <div className={`d-flex content-box flex-column text-start rounded ${cover} ${border} mx-3 mb-3 mt-5`}>
                 <div className='d-flex flex-column m-1'>
                     <h4 className='m-2'>{post.title}</h4>
                     <small className='m-2'>Date : {post.publicationDate?.slice(0, 10)}</small>

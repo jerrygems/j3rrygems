@@ -11,7 +11,7 @@ function KHB() {
     useEffect(() => {
         const showKHB = async () => {
             try {
-                let request = await fetch("http://localhost:5000/khb/getkhbchaps", {
+                let request = await fetch("http://192.168.29.169:5000/khb/khbchaps", {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function KHB() {
         showKHB()
     }, [])
     return (
-        <div className='w-75 m-4'>
+        <div className='content-box m-4'>
             <div className={`text-start mx-2 my-1 ${txtWhite}`}>
                 <h3>Kernel Hacking Book</h3>
             </div>
@@ -37,7 +37,7 @@ function KHB() {
             <div className='d-flex flex-column'>
                 {
                     Array.isArray(khb) && khb.map((khb, index) => (
-                        <ListNorm key={index} str1="khb" str2="getkhbchap" sid={khb._id} title={khb.title} description={khb.description} date={khb.publicationDate} />
+                        <ListNorm key={index} str1="khb" str2="khbchap" sid={khb._id} title={khb.title} description={khb.description} date={khb.publicationDate} />
                     ))
                 }
             </div>

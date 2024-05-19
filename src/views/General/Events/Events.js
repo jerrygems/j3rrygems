@@ -3,13 +3,13 @@ import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function Events() {
     const [event, setEvent] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
     useEffect(() => {
         const showEvent = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/events/getevents`, {
+                let request = await fetch(`http://192.168.29.169:5000/events/events`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function Events() {
         showEvent()
     }, [])
     return (
-        <div className='d-flex flex-column rounded w-75 m-3'>
+        <div className='d-flex flex-column rounded content-box m-3'>
             {
                 Array.isArray(event) && event.map((event, index) => (
                     <div className={`d-flex flex-column text-center w-100 ${cover} ${border} rounded m-1`}>

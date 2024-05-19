@@ -8,13 +8,15 @@ function ListNorm({ str1, str2, sid, title, description, date }) {
     const border = darkMode ? '' : 'border'
     const txtWhite = darkMode ? 'txt-white' : 'text-black'
     return (
-        <Link to={`/${str1}/${str2}/${sid}`} className={`d-flex flex-column rounded m-1 text-decoration-none ${txtWhite} ${cover} ${border}`}>
-            <div className='d-flex mx-3`'>
-                <h5 className='m-3'>{title?.substring(0, 40)}</h5>
+        <Link to={`/${str1}/${str2}/${sid}`} className={`d-flex flex-column rounded text-decoration-none ${txtWhite} ${cover} ${border}`}>
+            <div className='d-flex'>
+                <h5 className='mx-3 mt-3'>{title?.substring(0, 40)}</h5>
             </div>
-            <div className='d-flex flex-column text-start mx-5'>
-                <p>{description?.substring(0, 60)}</p>
-                <p>Date: {date?.slice(0, 10)}</p>
+            <div className='d-flex flex-column'>
+                <hr></hr>
+                <p className='text-start mx-4'>{description?.substring(0, 60)}...</p>
+                <hr/>
+                <p className='text-start mx-3 small'>Date: {date?.slice(0, 10)}</p>
             </div>
         </Link>
     )

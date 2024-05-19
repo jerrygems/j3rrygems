@@ -5,15 +5,14 @@ import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function BlogsList() {
     const [blogs, setBlogs] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const cover = darkMode ? 'cover1' : 'dcover1'
+    const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
     useEffect(() => {
         const showBlog = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://localhost:5000/blogs/getblogs", {
+                let request = await fetch("http://192.168.29.169:5000/blogs/getblogs", {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

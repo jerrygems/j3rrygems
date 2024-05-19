@@ -24,9 +24,9 @@ function CreateEvent() {
     const submitevent = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = "http://192.168.29.169:3000"
         }
-        const url = "http://localhost:5000/events/create"
+        const url = "http://192.168.29.169:5000/events/create"
         let request = await fetch(url, {
             method: "post",
             headers: {

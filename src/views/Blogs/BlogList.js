@@ -10,7 +10,7 @@ function BlogList() {
         const showBlog = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://localhost:5000/blogs/getblogs", {
+                let request = await fetch("http://192.168.29.169:5000/blogs/blogs", {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,
@@ -31,12 +31,18 @@ function BlogList() {
         showBlog()
     }, [])
     return (
-        <div className='d-flex flex-wrap w-75 justify-content-start m-5 rounded '>
-            {
-                Array.isArray(blogs) && blogs.map((blog, index) => (
-                    <CardNorm key={index} sid={blog._id} str1="blogs" str2="getblog" title={blog.title} description={blog.description} author={blog.author?.name} />
-                ))
-            }
+        <div className='d-flex flex-column text-start content-box justify-content-start m-3 rounded '>
+            <div className='d-flex flex-column'>
+                <h2>Blogs</h2>
+                <hr></hr>
+            </div>
+            <div className='w-100 d-flex flex-wrap'>
+                {
+                    Array.isArray(blogs) && blogs.map((blog, index) => (
+                        <CardNorm key={index} sid={blog._id} str1="blogs" str2="blog" title={blog.title} description={blog.description} author={blog.author?.name} />
+                    ))
+                }
+            </div>
         </div>
     )
 }

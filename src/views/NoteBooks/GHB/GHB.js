@@ -12,7 +12,7 @@ function GHB() {
     useEffect(() => {
         const showGHB = async () => {
             try {
-                let request = await fetch("http://localhost:5000/ghb/getghbchaps", {
+                let request = await fetch("http://192.168.29.169:5000/ghb/ghbchaps", {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function GHB() {
         showGHB()
     }, [])
     return (
-        <div className='w-75 m-4'>
+        <div className='content-box m-4'>
             <div className={`text-start mx-2 my-1 ${txtWhite}`}>
                 <h3>Game Hacking Book</h3>
             </div>
@@ -38,7 +38,7 @@ function GHB() {
             <div className='d-flex flex-column'>
                 {
                     Array.isArray(ghb) && ghb.map((ghb, index) => (
-                        <ListNorm key={index} str1="ghb" str2="getghbchap" sid={ghb._id} title={ghb.title} description={ghb.description} date={ghb.publicationDate} />
+                        <ListNorm key={index} str1="ghb" str2="ghbchap" sid={ghb._id} title={ghb.title} description={ghb.description} date={ghb.publicationDate} />
                     ))
                 }
             </div>

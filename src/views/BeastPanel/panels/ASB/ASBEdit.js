@@ -28,11 +28,11 @@ function ASBEdit() {
     const submitasbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = "http://192.168.29.169:3000"
         }
         console.log(token)
         console.log(asbid)
-        const url = asbid ? "http://localhost:5000/asb/update" : "http://localhost:5000/asb/create"
+        const url = asbid ? "http://192.168.29.169:5000/asb/update" : "http://192.168.29.169:5000/asb/create"
         let request = await fetch(url, {
             method: asbid ? "put" : "post",
             headers: {
@@ -58,7 +58,7 @@ function ASBEdit() {
         const fetchasbchap = async () => {
             try {
                 if (asbid && !fetched) {
-                    let request = await fetch(`http://localhost:5000/asb/getasbchap/${asbid}`, {
+                    let request = await fetch(`http://192.168.29.169:5000/asb/getasbchap/${asbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",
@@ -142,7 +142,7 @@ function ASBEdit() {
                             <input type="text" className="form-control" id="keywords" placeholder='keywords' onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={submitasbchap}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitasbchap}><i className='fa fa-refresh p-1'></i>{mode}</button>
                 </form>
                 <br></br>
                 <div className='col'>

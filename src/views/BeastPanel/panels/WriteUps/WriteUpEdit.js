@@ -28,9 +28,9 @@ function WriteUpEdit() {
     const submitwriteup = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = "http://192.168.29.169:3000"
         }
-        const url = writeupid ? "http://localhost:5000/writeups/update" : "http://localhost:5000/writeups/create"
+        const url = writeupid ? "http://192.168.29.169:5000/writeups/update" : "http://192.168.29.169:5000/writeups/create"
         let request = await fetch(url, {
             method: writeupid ? "put" : "post",
             headers: {
@@ -55,7 +55,7 @@ function WriteUpEdit() {
         const fetchwriteup = async () => {
             try {
                 if (writeupid && !fetched) {
-                    let request = await fetch(`http://localhost:5000/writeups/getwriteup/${writeupid}`, {
+                    let request = await fetch(`http://192.168.29.169:5000/writeups/getwriteup/${writeupid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",
@@ -134,7 +134,7 @@ function WriteUpEdit() {
                             <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={submitwriteup}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitwriteup}><i className='fa fa-refresh p-1'></i>{mode}</button>
                 </form>
                 <br></br>
                 <div className='col'>

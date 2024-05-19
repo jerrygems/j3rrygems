@@ -9,7 +9,7 @@ function GHBList() {
         const showGHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://localhost:5000/ghb/getghbchaps", {
+                let request = await fetch("http://192.168.29.169:5000/ghb/getghbchaps", {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

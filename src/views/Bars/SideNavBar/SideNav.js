@@ -10,7 +10,7 @@ function SideNav() {
     const clr = darkMode ? 'color1' : ''
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (
-        <div className={`flex-column w-25 justify-content-center ${clr}`}>
+        <div className={`flex-column justify-content-center ${clr} envy`}>
             <h5 className={`mt-3 ${txtWhite}`}>HOME</h5>
             <ListGroup>
 

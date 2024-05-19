@@ -35,9 +35,9 @@ function NavBar() {
                         navbarScroll
                     >
                         <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Blogs'}>Blogs</Link></Nav.Link>
-                        <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Articles'}>Articles</Link></Nav.Link>
+                        <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Writeups'}>WriteUps</Link></Nav.Link>
                         <NavDropdown title="Menu" id="navbarScrollingDropdown">
-                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Android Security</Link></NavDropdown.Item>
+                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/ASB'}>Android Security</Link></NavDropdown.Item>
                             <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/KHB'}>Kernel Hacking</Link></NavDropdown.Item>
                             <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Game Hacking</Link></NavDropdown.Item>
                             <NavDropdown.Divider />

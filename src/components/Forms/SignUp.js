@@ -13,7 +13,7 @@ function SignUp() {
   const signUp = async (e) => {
     e.preventDefault();
     if (password === confPassword) {
-      let request = await fetch("http://localhost:5000/auth/register", {
+      let request = await fetch("http://192.168.29.169:5000/auth/register", {
         method: "post",
         headers: {
           "Content-Type": "application/json"

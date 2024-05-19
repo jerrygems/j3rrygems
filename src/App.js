@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
 import { DarkModeProvider, useDarkMode } from './components/Context/DarkModeProvider';
 
 import NavBar from './components/Navbar/NavBar';
@@ -21,27 +20,28 @@ function App() {
       console.log('no token found');
       return;
     }
+    console.log("here")
 
     const checkRole = async () => {
       try {
-        const response = await fetch('/users/check', {
+        const response = await fetch('http://192.168.29.169:5000/users/check', {
           method: 'get',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
+            'Authorization': `${token}`
+          },
+          cache: 'no-store'
         });
 
-        if (!response.ok) {
-          throw new Error('Role check failed');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.message === 'admin') {
+            setIsAdmin(true);
+          } else {
+            console.log('User is not an admin');
+          }
         }
 
-        const data = await response.json();
-        if (data.role === 'admin') {
-          setIsAdmin(true);
-        } else {
-          console.log('User is not an admin');
-        }
       } catch (error) {
         console.error(error);
       }

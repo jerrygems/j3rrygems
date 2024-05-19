@@ -14,7 +14,7 @@ function Home() {
     useEffect(() => {
         const showContent = async () => {
             try {
-                let request = await fetch("http://localhost:5000/api/latest", {
+                let request = await fetch("http://192.168.29.169:5000/api/latest", {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',
@@ -34,10 +34,11 @@ function Home() {
     }, [])
 
     return (
-        <div className={`d-flex flex-column w-75 mx-5 my-3 ${cover}`}>
-            <h3 className='text-start m-1'>Home Page</h3>
+        <div className={`d-flex flex-column content-box my-3`}>
+            <h3 className={`text-start mx-2 ${txtWhite}`}>Home Page</h3>
+            <hr></hr>
             <div className='d-flex flex-column justify-content-center rounded'>
-                <h6 className='text-start m-3'>Top Seven</h6>
+                <h4 className={`text-start mx-3 ${txtWhite} text-secondary`}>Latest ;-)</h4>
                 <ListGroup className='d-flex flex-column justify-content-center m-2 rounded'>
                     {
                         Array.isArray(content) && content.map((item, index) => {

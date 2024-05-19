@@ -6,7 +6,6 @@ import KHB from '../NoteBooks/KHB/KHB'
 import WriteUpsList from '../WriteUps/WriteUpListPage';
 import SideNav from '../Bars/SideNavBar/SideNav'
 import Home from '../Home/Home'
-import ArticlesList from '../Articles/ArticlesList'
 
 import { Route, Routes } from 'react-router-dom'
 import DefPreview from '../Preview/DefPreview'
@@ -20,7 +19,6 @@ function UserViewComp() {
             <SideNav />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/Articles' element={<ArticlesList />} />
                 <Route path='/Blogs' element={<BlogList />} />
                 <Route path='/WriteUps' element={<WriteUpsList />} />
                 <Route path='/ASB' element={<ASB />} />

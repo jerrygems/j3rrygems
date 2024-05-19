@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-
+import { useNavigate } from 'react-router-dom'
 function Login() {
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
 
     const login = async () => {
-        let request = await fetch("http://localhost:5000/auth/login", {
+        let request = await fetch("http://192.168.29.169:5000/auth/login", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -23,7 +24,7 @@ function Login() {
             const token = data.token
             localStorage.setItem("jwt_token", token)
             console.log("login succeded ;-)")
-            window.location.reload()
+            navigate('/')
         } else {
             console.log("login failed ;-(")
         }

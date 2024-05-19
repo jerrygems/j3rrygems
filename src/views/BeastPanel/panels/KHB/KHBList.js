@@ -14,7 +14,7 @@ function KHBList() {
         const showKHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://localhost:5000/khb/getkhbchaps", {
+                let request = await fetch("http://192.168.29.169:5000/khb/getkhbchaps", {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,
