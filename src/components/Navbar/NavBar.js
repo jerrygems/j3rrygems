@@ -9,6 +9,7 @@ function NavBar() {
     const { darkMode, toggleDarkMode } = useDarkMode();
     const bg = darkMode ? 'bg-dark' : 'bg-body-tertiary'
     const txtWhite = darkMode ? 'txt-white' : 'text-black'
+    const dk = darkMode ? 'dark' : 'nondark'
 
     const [SignUpToggle, setSignUpToggle] = useState(false)
     const [LoginToggle, setLoginToggle] = useState(false)
@@ -23,9 +24,9 @@ function NavBar() {
     }
 
     return (
-        <Navbar expand="lg" className={`${bg}`}>
+        <Navbar expand="lg" className={`${bg} ${dk}`}>
             <Container fluid>
-                <Navbar.Brand href="/" className={`${txtWhite}`}>J3rrygems</Navbar.Brand>
+                <Navbar.Brand ><Link className={`${txtWhite} text-decoration-none`} to={'/'}>J3rrygems</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

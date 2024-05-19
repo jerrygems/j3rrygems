@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { ListGroup } from 'react-bootstrap'
 import ListNorm from '../../components/Lists/ListNorm'
+import { useDarkMode } from '../../components/Context/DarkModeProvider';
 
 function Home() {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
     const [content, setContent] = useState([])
 
@@ -29,7 +34,7 @@ function Home() {
     }, [])
 
     return (
-        <div className='d-flex flex-column w-75 mx-5 my-3 cover2'>
+        <div className={`d-flex flex-column w-75 mx-5 my-3 ${cover}`}>
             <h3 className='text-start m-1'>Home Page</h3>
             <div className='d-flex flex-column justify-content-center rounded'>
                 <h6 className='text-start m-3'>Top Seven</h6>

@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useDarkMode } from '../../../../../components/Context/DarkModeProvider';
 
 function CreateAnon() {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
+
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [content, setContent] = useState('')
@@ -39,7 +45,7 @@ function CreateAnon() {
         }
     }
 
-    
+
 
     const modules = {
         toolbar: [
@@ -63,9 +69,9 @@ function CreateAnon() {
     };
     return (
         <>
-            <div className='m-3 txt-white d-flex flex-column text-start'>
+            <div className={`m-3 ${txtWhite} d-flex flex-column text-start`}>
                 <h3 className='p-3'>Create Announcements</h3>
-                <form className='py-3 px-4 cover1 rounded' >
+                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <div className="form-group px-1 py-3">
                             <label htmlFor="title">Title:</label>
@@ -94,7 +100,7 @@ function CreateAnon() {
                             <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={announcer}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>Create</button>
+                    <button type="submit" className="btn btn-primary" onClick={announcer}><i className='fa fa-refresh p-1'></i>Create</button>
                 </form>
                 <br></br>
                 <div className='col'>

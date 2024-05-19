@@ -13,7 +13,7 @@ import AdminViewComp from './views/BeastPanel/AdminViewComp';
 import UserViewComp from './views/BeastPanel/UserViewComp';
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('jwt_token');

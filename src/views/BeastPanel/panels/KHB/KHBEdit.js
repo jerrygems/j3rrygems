@@ -2,8 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function KHBEdit() {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
+
+
     const { khbid } = useParams()
     const mode = khbid ? "Update" : "Create"
     const [chapNo, setChapNo] = useState('')
@@ -32,8 +39,8 @@ function KHBEdit() {
                 "Authorization": `${token}`
             },
             body: JSON.stringify({
-                khbid:khbid,
-                chap_no:chapNo,
+                khbid: khbid,
+                chap_no: chapNo,
                 title: title,
                 description: description,
                 content: content,
@@ -98,9 +105,9 @@ function KHBEdit() {
     };
     return (
         <>
-            <div className='m-3 txt-white d-flex flex-column text-start'>
+            <div className={`m-3 ${txtWhite} d-flex flex-column text-start`}>
                 <h3 className='p-3'>{mode} KHB Chapter</h3>
-                <form className='py-3 px-4 cover1 rounded' >
+                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <label htmlFor="content"><h4>Chapter Content:</h4></label>
                         <div className="form-group px-1 py-3">

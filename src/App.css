@@ -45,12 +45,12 @@
 .dcover1 {
   background: transparent !important;
   color: black !important;
-  box-shadow: 0px 0px 0px 0px white inset, 0px 0px 10px 1px white;
+  box-shadow: 0px 0px 0px 0px white inset, 0px 0px 10px 1px black;
   transition: box-shadow 0.2s;
 
 }
 .dcover1:hover {
-  box-shadow: 0px 0px 5px 1px white inset, 0px 0px 0px 0px white;
+  box-shadow: 0px 0px 5px 1px black inset, 0px 0px 0px 0px white;
   transition: box-shadow 0.2s;
 }
 
@@ -144,6 +144,9 @@
   background: black !important;
 }
 
-.txt-white a{
+.nondark .txt-white a{
   color:white;
+}
+.dark .txt-white a{
+  color:black;
 }

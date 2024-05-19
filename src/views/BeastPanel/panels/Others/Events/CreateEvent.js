@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useDarkMode } from '../../../../../components/Context/DarkModeProvider';
 
 function CreateEvent() {
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const cover = darkMode ? 'cover1' : 'dcover1'
+    const border = darkMode ? '' : 'border'
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
+
+
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [content, setContent] = useState('')
@@ -63,9 +70,9 @@ function CreateEvent() {
     };
     return (
         <>
-            <div className='m-3 txt-white d-flex flex-column text-start'>
+            <div className={`m-3 ${txtWhite} d-flex flex-column text-start`}>
                 <h3 className='p-3'>Create Event</h3>
-                <form className='py-3 px-4 cover1 rounded' >
+                <form className={`py-3 px-4 ${cover} ${border} rounded`} >
                     <div className="form-group">
                         <div className="form-group px-1 py-3">
                             <label htmlFor="title">Title:</label>

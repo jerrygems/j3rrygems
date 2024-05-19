@@ -53,10 +53,10 @@ function About() {
         Let's connect and collaborate on exciting projects!
       </p>
       <div className='d-flex flex-row w-100 justify-content-center'>
-        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-github'></i></a>
-        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-reddit'></i></a>
-        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-twitter'></i></a>
-        <a className='text-decoration-none txt-white m-3 h4' href="#"><i className='fa fa-linkedin'></i></a>
+        <a className={`text-decoration-none ${txtWhite} m-3 h4`} href="https://github.com/jerrygems"><i className='fa fa-github'></i></a>
+        <a className={`text-decoration-none ${txtWhite} m-3 h4`} href="https://www.reddit.com/user/Sp1d3y001/"><i className='fa fa-reddit'></i></a>
+        <a className={`text-decoration-none ${txtWhite} m-3 h4`} href="https://x.com/Shubham_lnx"><i className='fa fa-twitter'></i></a>
+        <a className={`text-decoration-none ${txtWhite} m-3 h4`} href="https://linkedin.com/in/jerrygems"><i className='fa fa-linkedin'></i></a>
       </div>
     </div>
   );
