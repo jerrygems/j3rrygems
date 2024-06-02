@@ -38,30 +38,7 @@ function InsightsPanel() {
             {/* this table will contain weekly insights */}
             <h3 className={`text-start mx-2 my-2 ${txtWhite}`}>Insights</h3>
             <hr></hr>
-            <Table responsive className={`${darkMode ? 'table-dark' : 'table'} table-hover ${cover} ${txtWhite} border-0 rounded`}>
-                <thead>
-                    <tr>
-                        <th>Accounts Created</th>
-                        <th>Total ScreenTime</th>
-                        <th>Timespent per user</th>
-                        <th>male</th>
-                        <th>female</th>
-                        <th>Avg Visits</th>
-                        <th>Posts Viewed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>25</td>
-                        <td>10h</td>
-                        <td>10mins</td>
-                        <td>10</td>
-                        <td>6</td>
-                        <td>40 views</td>
-                        <td>3</td>
-                    </tr>
-                </tbody>
-            </Table>
+
 
             <h3 className='text-start mx-5 my-2'>Users</h3>
             <hr></hr>
@@ -77,8 +54,6 @@ function InsightsPanel() {
                         <th>browser</th>
                         <th>Status</th>
                         <th>dob</th>
-                        <th>Edit</th>
-                        <th>Trash</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,8 +70,6 @@ function InsightsPanel() {
                                     <td>{item.browser_info}</td>
                                     <td>online</td>
                                     <td>{item.dob}</td>
-                                    <td><Button className='btn btn-primary'><i className='fa fa-edit'></i> Edit</Button></td>
-                                    <td><Button className='btn btn-danger'><i className='fa fa-trash'></i> Trash</Button></td>
                                 </tr>
                             </>
                         ))

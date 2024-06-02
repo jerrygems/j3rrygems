@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDarkMode } from '../../../../components/Context/DarkModeProvider'
 import ListTypeB from '../../comps/ListTypeB'
 import Paginate from '../../../../components/Paginate/Paginate'
 
 function GHBList() {
     const [ghb, setGHB] = useState([])
+    const { darkMode, toggleDarkMode } = useDarkMode();
     const [currentPage, setCurrentPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)
 
+    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     useEffect(() => {
         const showGHB = async () => {
             try {
@@ -48,7 +51,7 @@ function GHBList() {
     return (
         <div className={`${window.innerWidth < 1000 ? 'w-100' : 'w-75'} d-flex flex-column`}>
             <div className='d-flex flex-row mx-3 align-items-center justify-content-between'>
-                <h3 className='mx-3 my-3 text-start txt-white'>Game Hacking Chapters</h3>
+                <h3 className={`mx-3 my-3 text-start ${txtWhite}`}>Game Hacking Chapters</h3>
                 <Link className="d-flex p-2 btn btn-dark ml-5 align-items-center" to={`/ghb-edit`}><i className='fa fa-plus mx-2'></i>Create</Link>
             </div>
             <hr></hr>
