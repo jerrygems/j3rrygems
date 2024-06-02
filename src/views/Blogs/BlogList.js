@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import CardNorm from '../../components/Cards/CardNorm'
 import { useDarkMode } from '../../components/Context/DarkModeProvider';
+import Paginate from '../../components/Paginate/Paginate';
 
 
 function BlogList() {
     const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
+
     const [blogs, setBlogs] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [maxPage, setMaxPage] = useState(1)
 
     useEffect(() => {
         const showBlog = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://192.168.29.169:5000/blogs/blogs", {
+                let request = await fetch(`http://localhost:5000/blogs/blogs?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,
@@ -23,6 +27,7 @@ function BlogList() {
                 if (request.ok) {
                     const data = await request.json()
                     setBlogs(data.message)
+                    setMaxPage(data.maxPage)
                 } else {
                     console.log("error occured while fetching")
                 }
@@ -31,7 +36,19 @@ function BlogList() {
             }
         }
         showBlog()
-    }, [])
+    }, [currentPage])
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const nextPage = () => {
+        if (currentPage < maxPage) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
     return (
         <div className='d-flex flex-column text-start content-box justify-content-start m-3 rounded '>
             <div className='d-flex flex-column'>
@@ -45,6 +62,8 @@ function BlogList() {
                     ))
                 }
             </div>
+            <hr></hr>
+            <Paginate currentPage={currentPage} maxPage={maxPage} prevPage={prevPage} nextPage={nextPage} />
         </div>
     )
 }

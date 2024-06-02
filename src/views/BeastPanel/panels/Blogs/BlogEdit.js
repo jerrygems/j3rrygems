@@ -28,9 +28,9 @@ function BlogEdit() {
     const submitBlog = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://192.168.29.169:3000"
+            window.location.href = "http://localhost:3000"
         }
-        const url = blogid ? "http://192.168.29.169:5000/blogs/update" : "http://192.168.29.169:5000/blogs/create"
+        const url = blogid ? "http://localhost:5000/blogs/update" : "http://localhost:5000/blogs/create"
         let request = await fetch(url, {
             method: blogid ? "put" : "post",
             headers: {
@@ -55,7 +55,7 @@ function BlogEdit() {
         const fetchblog = async () => {
             try {
                 if (blogid && !fetched) {
-                    let request = await fetch(`http://192.168.29.169:5000/blogs/getblog/${blogid}`, {
+                    let request = await fetch(`http://localhost:5000/blogs/getblog/${blogid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

@@ -9,7 +9,7 @@ function Events() {
     useEffect(() => {
         const showEvent = async () => {
             try {
-                let request = await fetch(`http://192.168.29.169:5000/events/events`, {
+                let request = await fetch(`http://localhost:5000/events/events`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',

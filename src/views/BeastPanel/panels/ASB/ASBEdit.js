@@ -28,11 +28,11 @@ function ASBEdit() {
     const submitasbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://192.168.29.169:3000"
+            window.location.href = "http://localhost:3000"
         }
         console.log(token)
         console.log(asbid)
-        const url = asbid ? "http://192.168.29.169:5000/asb/update" : "http://192.168.29.169:5000/asb/create"
+        const url = asbid ? "http://localhost:5000/asb/update" : "http://localhost:5000/asb/create"
         let request = await fetch(url, {
             method: asbid ? "put" : "post",
             headers: {
@@ -58,7 +58,7 @@ function ASBEdit() {
         const fetchasbchap = async () => {
             try {
                 if (asbid && !fetched) {
-                    let request = await fetch(`http://192.168.29.169:5000/asb/getasbchap/${asbid}`, {
+                    let request = await fetch(`http://localhost:5000/asb/getasbchap/${asbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

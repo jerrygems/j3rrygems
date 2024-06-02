@@ -38,7 +38,7 @@ function NavBar() {
         setIsLoggedIn(false);
         setSignUpToggle(false);
         setLoginToggle(false);
-        window.location.href='http://192.168.29.169:3000/'
+        window.location.href='http://localhost:3000/'
     };
     return (
         <Navbar expand="lg" className={`${bg} ${dk}`}>

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ListNorm from '../../../components/Lists/ListNorm'
 import { useDarkMode } from '../../../components/Context/DarkModeProvider';
+import Paginate from '../../../components/Paginate/Paginate';
 
 function ASB() {
     const [asb, setASB] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [maxPage, setMaxPage] = useState(1)
+
     const { darkMode, toggleDarkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
@@ -12,7 +16,7 @@ function ASB() {
     useEffect(() => {
         const showASB = async () => {
             try {
-                let request = await fetch("http://192.168.29.169:5000/asb/asbchaps", {
+                let request = await fetch(`http://localhost:5000/asb/asbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',
@@ -22,13 +26,27 @@ function ASB() {
                 if (request.ok) {
                     const data = await request.json()
                     setASB(data.message)
+                    setMaxPage(data.maxPage)
                 }
             } catch (err) {
                 console.log(err)
             }
         }
         showASB()
-    }, [])
+    }, [currentPage])
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const nextPage = () => {
+        if (currentPage < maxPage) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
     return (
         <div className='content-box m-4'>
             <div className={`text-start mx-2 my-1 ${txtWhite}`}>
@@ -42,6 +60,8 @@ function ASB() {
                     ))
                 }
             </div>
+            <hr></hr>
+            <Paginate currentPage={currentPage} maxPage={maxPage} prevPage={prevPage} nextPage={nextPage} />
 
         </div>
     )

@@ -14,7 +14,7 @@ function DefPreview() {
     useEffect(() => {
         const showPost = async () => {
             try {
-                let request = await fetch(`http://192.168.29.169:5000/${str1}/${str2}/${sid}`, {
+                let request = await fetch(`http://localhost:5000/${str1}/${str2}/${sid}`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
@@ -49,7 +49,11 @@ function DefPreview() {
                 </div>
                 <hr></hr>
                 <div className='d-flex flex-wrap m-1'>
-                    <Button className='m-2' variant='dark'>Keyword 1</Button>
+                    {
+                        Array.isArray(post.keywords) && post.keywords.map(keyword => (
+                            <Button className='m-2' variant='dark'>{keyword}</Button>
+                        ))
+                    }
                 </div>
                 <hr></hr>
                 <div className='d-flex flex-column m-1'>

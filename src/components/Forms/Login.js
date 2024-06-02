@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 function Login() {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
 
     const login = async () => {
-        let request = await fetch("http://192.168.29.169:5000/auth/login", {
+        let request = await fetch("http://localhost:5000/auth/login", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -27,10 +27,17 @@ function Login() {
             console.log("login failed ;-(")
         }
     }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            login();
+        }
+    };
     return (
 
         <div className='cented'>
-            <Form className='w-100 d-flex justify-content-center my-4 mx-2 rounded border text-start bg-white shadow-lg'>
+            <Form className='w-100 d-flex justify-content-center my-4 mx-2 rounded border text-start bg-white shadow-lg' onKeyDown={handleKeyDown}>
                 <Form.Group className='m-1 text-center p-5'>
                     <h3 className='mt-3 mb-2'>Login</h3>
                     <small className='text-muted'>Enter you details here to Login</small>

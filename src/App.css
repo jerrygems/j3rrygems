@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Itim&display=swap');
+
+
 .App {
   text-align: center;
+  font-family: 'Itim';
 }
 
 .dark {
@@ -39,6 +44,8 @@
   background: #1d1d1d !important;
   color: white !important;
   box-shadow: 0px 0px 0px 0px black inset, 0px 0px 10px 1px black;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   transition: box-shadow 0.2s;
 
 }

@@ -29,9 +29,9 @@ function KHBEdit() {
     const submitkhbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://192.168.29.169:3000"
+            window.location.href = "http://localhost:3000"
         }
-        const url = khbid ? "http://192.168.29.169:5000/khb/update" : "http://192.168.29.169:5000/khb/create"
+        const url = khbid ? "http://localhost:5000/khb/update" : "http://localhost:5000/khb/create"
         let request = await fetch(url, {
             method: khbid ? "put" : "post",
             headers: {
@@ -57,7 +57,7 @@ function KHBEdit() {
         const fetchkhbchap = async () => {
             try {
                 if (khbid && !fetched) {
-                    let request = await fetch(`http://192.168.29.169:5000/khb/getkhbchap/${khbid}`, {
+                    let request = await fetch(`http://localhost:5000/khb/getkhbchap/${khbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",
@@ -141,7 +141,7 @@ function KHBEdit() {
                             <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={submitkhbchap}/*onClick={mode === 'Create' ? createwriteup : updatewriteup}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitkhbchap}><i className='fa fa-refresh p-1'></i>{mode}</button>
                 </form>
                 <br></br>
                 <div className='col'>

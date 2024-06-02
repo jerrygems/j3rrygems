@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ListTypeB from '../../comps/ListTypeB'
 import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
+import Paginate from '../../../../components/Paginate/Paginate';
 
 function KHBList() {
     const [khb, setKHB] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [maxPage, setMaxPage] = useState(1)
+
     const { darkMode, toggleDarkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
@@ -14,7 +18,7 @@ function KHBList() {
         const showKHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://192.168.29.169:5000/khb/getkhbchaps", {
+                let request = await fetch(`http://localhost:5000/khb/getkhbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,
@@ -25,6 +29,7 @@ function KHBList() {
                 if (request.ok) {
                     const data = await request.json()
                     setKHB(data.message)
+                    setMaxPage(data.maxPage)
                 } else {
                     console.log("error occured while fetching")
                 }
@@ -33,7 +38,20 @@ function KHBList() {
             }
         }
         showKHB()
-    }, [])
+    }, [currentPage])
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const nextPage = () => {
+        if (currentPage < maxPage) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
     return (
         <div className={`${window.innerWidth < 1000 ? 'w-100' : 'w-75'} d-flex flex-column`}>
             <div className='d-flex flex-row mx-3 align-items-center justify-content-between'>
@@ -45,11 +63,14 @@ function KHBList() {
                 {
                     Array.isArray(khb) && khb.map((khb, index) => (
                         <>
-                            <ListTypeB key={index} sid={khb._id} title={khb.title} description={khb.description} strn="khb-edit" date={khb.publicationDate} />
+                            <ListTypeB key={index} sid={khb._id} title={khb.title} description={khb.description} strn="khb-edit" date={khb.publicationDate} strn2="khb" />
                         </>
                     ))
                 }
             </div>
+            <hr></hr>
+            <Paginate currentPage={currentPage} maxPage={maxPage} prevPage={prevPage} nextPage={nextPage} />
+
         </div>
     )
 }

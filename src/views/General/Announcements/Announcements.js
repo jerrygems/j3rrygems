@@ -10,7 +10,7 @@ function Announcements() {
     useEffect(() => {
         const showAnon = async () => {
             try {
-                let request = await fetch(`http://192.168.29.169:5000/announcements/announcements`, {
+                let request = await fetch(`http://localhost:5000/announcements/announcements`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',

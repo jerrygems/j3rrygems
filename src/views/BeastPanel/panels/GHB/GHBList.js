@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ListTypeB from '../../comps/ListTypeB'
+import Paginate from '../../../../components/Paginate/Paginate'
 
 function GHBList() {
     const [ghb, setGHB] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [maxPage, setMaxPage] = useState(1)
 
     useEffect(() => {
         const showGHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://192.168.29.169:5000/ghb/getghbchaps", {
+                let request = await fetch(`http://localhost:5000/ghb/getghbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,
@@ -20,6 +23,7 @@ function GHBList() {
                 if (request.ok) {
                     const data = await request.json()
                     setGHB(data.message)
+                    setMaxPage(data.maxPage)
                 } else {
                     console.log("error occured while fetching")
                 }
@@ -28,9 +32,21 @@ function GHBList() {
             }
         }
         showGHB()
-    }, [])
+    }, [currentPage])
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const nextPage = () => {
+        if (currentPage < maxPage) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
     return (
-        <div className={`${window.innerWidth<1000 ? 'w-100':'w-75'} d-flex flex-column`}>
+        <div className={`${window.innerWidth < 1000 ? 'w-100' : 'w-75'} d-flex flex-column`}>
             <div className='d-flex flex-row mx-3 align-items-center justify-content-between'>
                 <h3 className='mx-3 my-3 text-start txt-white'>Game Hacking Chapters</h3>
                 <Link className="d-flex p-2 btn btn-dark ml-5 align-items-center" to={`/ghb-edit`}><i className='fa fa-plus mx-2'></i>Create</Link>
@@ -40,11 +56,13 @@ function GHBList() {
                 {
                     Array.isArray(ghb) && ghb.map((ghb, index) => (
                         <>
-                            <ListTypeB key={index} sid={ghb._id} title={ghb.title} description={ghb.description} strn="ghb-edit" date={ghb.publicationDate} />
+                            <ListTypeB key={index} sid={ghb._id} title={ghb.title} description={ghb.description} strn="ghb-edit" date={ghb.publicationDate} strn2="ghb" />
                         </>
                     ))
                 }
             </div>
+            <hr></hr>
+            <Paginate currentPage={currentPage} maxPage={maxPage} prevPage={prevPage} nextPage={nextPage} />
         </div>
     )
 }

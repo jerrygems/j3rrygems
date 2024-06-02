@@ -13,7 +13,7 @@ function SignUp() {
   const signUp = async (e) => {
     e.preventDefault();
     if (password === confPassword) {
-      let request = await fetch("http://192.168.29.169:5000/auth/register", {
+      let request = await fetch("http://localhost:5000/auth/register", {
         method: "post",
         headers: {
           "Content-Type": "application/json"
@@ -32,14 +32,20 @@ function SignUp() {
     }
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      signUp(e);
+    }
+  };
 
   return (
 
     <div className='cented' >
-      <Form className='w-100 d-flex justify-content-center my-4 mx-2 rounded border text-start bg-white shadow-lg'>
+      <Form className='w-100 d-flex justify-content-center my-4 mx-2 rounded border text-start bg-white shadow-lg' onKeyDown={handleKeyDown}>
         <Form.Group className='w-100 m-1 text-center p-5'>
           <h3 className='mt-3 mb-2'>Sign Up</h3>
-          <small className='text-muted'>Enter you details here to sign up</small>
+          <small className='text-muted'>Enter your details here for sign up</small>
           <hr className='my-4 text-secondary'></hr>
           <Form.Control className='my-2' type='username' placeholder='your username' onChange={(e) => setUname(e.target.value)} defaultValue={uname}></Form.Control>
           <Form.Control className='my-2' type='email' placeholder='your email' onChange={(e) => setEmail(e.target.value)} defaultValue={email}></Form.Control>
@@ -50,7 +56,7 @@ function SignUp() {
           </div>
 
           <Form.Control className='my-2' type='Password' placeholder='your Password' onChange={(e) => setPass(e.target.value)} defaultValue={password}></Form.Control>
-          <Form.Control className='my-2' type='confPassword' placeholder='confirm Password' onChange={(e) => setConfPass(e.target.value)} defaultValue={confPassword}></Form.Control>
+          <Form.Control className='my-2' type='Password' placeholder='confirm Password' onChange={(e) => setConfPass(e.target.value)} defaultValue={confPassword}></Form.Control>
           <Button className='mt-3' variant='secondary' onClick={signUp}>Sign Up</Button>
         </Form.Group>
       </Form>

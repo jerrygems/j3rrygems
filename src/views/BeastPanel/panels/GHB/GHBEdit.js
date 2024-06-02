@@ -28,9 +28,9 @@ function GHBEdit() {
     const submitghbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://192.168.29.169:3000"
+            window.location.href = "http://localhost:3000"
         }
-        const url = ghbid ? "http://192.168.29.169:5000/ghb/update" : "http://192.168.29.169:5000/ghb/create"
+        const url = ghbid ? "http://localhost:5000/ghb/update" : "http://localhost:5000/ghb/create"
         let request = await fetch(url, {
             method: ghbid ? "put" : "post",
             headers: {
@@ -56,7 +56,7 @@ function GHBEdit() {
         const fetchghbchap = async () => {
             try {
                 if (ghbid && !fetched) {
-                    let request = await fetch(`http://192.168.29.169:5000/ghb/getghbchap/${ghbid}`, {
+                    let request = await fetch(`http://localhost:5000/ghb/getghbchap/${ghbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

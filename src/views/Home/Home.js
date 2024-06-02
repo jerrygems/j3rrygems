@@ -14,7 +14,7 @@ function Home() {
     useEffect(() => {
         const showContent = async () => {
             try {
-                let request = await fetch("http://192.168.29.169:5000/api/latest", {
+                let request = await fetch("http://localhost:5000/api/latest", {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',
