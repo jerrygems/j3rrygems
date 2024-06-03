@@ -73,10 +73,10 @@ function Search() {
                                     return (
                                         <ListNorm key={index} sid={result._id} title={result.title} description={result.description} date={result.publicationDate} str1="writeups" str2="writeup" />
                                     )
-                                // default:
-                                //     return (
-                                //         <h2>No Results Found ;-)</h2>
-                                //     )
+                                default:
+                                    return (
+                                        <h2>No Results Found ;-)</h2>
+                                    )
                             }
                         }) : (
                             <>
