@@ -17,7 +17,7 @@ function Search() {
             return;
         }
         try {
-            const response = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/api/search?key=${encodeURIComponent(searchQuery)}`);
+            const response = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/api/search?key=${encodeURIComponent(searchQuery)}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

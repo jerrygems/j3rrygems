@@ -11,7 +11,7 @@ function Announcements() {
         const showAnon = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/announcements/getannouncements`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/announcements/getannouncements`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

@@ -13,7 +13,7 @@ function Events() {
         const showEvent = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/events/getevents`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/events/getevents`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

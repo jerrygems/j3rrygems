@@ -14,7 +14,7 @@ function GHB() {
     useEffect(() => {
         const showGHB = async () => {
             try {
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/ghb/ghbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/ghb/ghbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',

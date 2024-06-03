@@ -15,7 +15,7 @@ function GHBList() {
         const showGHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/ghb/getghbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/ghb/getghbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

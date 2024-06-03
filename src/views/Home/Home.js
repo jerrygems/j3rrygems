@@ -12,7 +12,7 @@ function Home() {
     useEffect(() => {
         const showContent = async () => {
             try {
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/api/latest`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/api/latest`, {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',

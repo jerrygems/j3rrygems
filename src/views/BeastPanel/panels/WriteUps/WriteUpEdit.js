@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function WriteUpEdit() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
@@ -28,9 +28,9 @@ function WriteUpEdit() {
     const submitwriteup = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
+            window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
         }
-        const url = writeupid ? `${process.env.WEB_URL}:${process.env.BPORT}/writeups/update` : `${process.env.WEB_URL}:${process.env.BPORT}/writeups/create`
+        const url = writeupid ? `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/writeups/update` : `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/writeups/create`
         let request = await fetch(url, {
             method: writeupid ? "put" : "post",
             headers: {
@@ -55,7 +55,7 @@ function WriteUpEdit() {
         const fetchwriteup = async () => {
             try {
                 if (writeupid && !fetched) {
-                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/writeups/getwriteup/${writeupid}`, {
+                    let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/writeups/getwriteup/${writeupid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

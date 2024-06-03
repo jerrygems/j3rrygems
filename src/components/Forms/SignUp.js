@@ -13,7 +13,7 @@ function SignUp() {
   const signUp = async (e) => {
     e.preventDefault();
     if (password === confPassword) {
-      let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/auth/register`, {
+      let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/auth/register`, {
         method: "post",
         headers: {
           "Content-Type": "application/json"

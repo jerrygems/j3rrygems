@@ -9,7 +9,7 @@ function Announcements() {
     useEffect(() => {
         const showAnon = async () => {
             try {
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/announcements/announcements`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/announcements/announcements`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function Announcements() {
         <div className='d-flex flex-column rounded content-box m-3'>
             {
                 Array.isArray(anon) && anon.map((anon, index) => (
-                    <div className={`d-flex flex-column text-center w-100 rounded m-1 ${cover} ${border}`}>
+                    <div key={index} className={`d-flex flex-column text-center w-100 rounded m-1 ${cover} ${border}`}>
                         <h5 className='mt-4'>{anon.title}</h5>
                         <hr></hr>
                         <p className='m-1 ql-editor d-flex flex-wrap' dangerouslySetInnerHTML={{ __html: anon.content }}></p>

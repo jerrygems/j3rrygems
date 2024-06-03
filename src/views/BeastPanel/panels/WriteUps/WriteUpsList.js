@@ -15,7 +15,7 @@ function WriteUpsList() {
         const showWriteup = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/writeups/getwriteups?page=${currentPage}`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/writeups/getwriteups?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

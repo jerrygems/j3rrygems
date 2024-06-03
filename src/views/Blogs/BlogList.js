@@ -16,7 +16,7 @@ function BlogList() {
         const showBlog = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/blogs/blogs?page=${currentPage}`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/blogs/blogs?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

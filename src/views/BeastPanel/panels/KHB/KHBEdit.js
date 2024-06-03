@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function KHBEdit() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
@@ -29,9 +29,9 @@ function KHBEdit() {
     const submitkhbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
+            window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
         }
-        const url = khbid ? `${process.env.WEB_URL}:${process.env.BPORT}/khb/update` : `${process.env.WEB_URL}:${process.env.BPORT}/khb/create`
+        const url = khbid ? `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/khb/update` : `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/khb/create`
         let request = await fetch(url, {
             method: khbid ? "put" : "post",
             headers: {
@@ -57,7 +57,7 @@ function KHBEdit() {
         const fetchkhbchap = async () => {
             try {
                 if (khbid && !fetched) {
-                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/khb/getkhbchap/${khbid}`, {
+                    let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/khb/getkhbchap/${khbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

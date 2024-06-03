@@ -28,9 +28,9 @@ function BlogEdit() {
     const submitBlog = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
+            window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
         }
-        const url = blogid ? `${process.env.WEB_URL}:${process.env.BPORT}/blogs/update` : `${process.env.WEB_URL}:${process.env.BPORT}/blogs/create`
+        const url = blogid ? `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/blogs/update` : `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/blogs/create`
         let request = await fetch(url, {
             method: blogid ? "put" : "post",
             headers: {
@@ -55,7 +55,7 @@ function BlogEdit() {
         const fetchblog = async () => {
             try {
                 if (blogid && !fetched) {
-                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/blogs/getblog/${blogid}`, {
+                    let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/blogs/getblog/${blogid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

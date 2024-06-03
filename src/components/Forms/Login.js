@@ -3,9 +3,9 @@ import { Form, Button } from 'react-bootstrap'
 function Login() {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
-
+    console.log(process.env.REACT_APP_WEB_URL)
     const login = async () => {
-        let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/auth/login`, {
+        let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/auth/login`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"

@@ -38,7 +38,7 @@ function NavBar() {
         setIsLoggedIn(false);
         setSignUpToggle(false);
         setLoginToggle(false);
-        window.location.href = `${process.env.WEB_URL}:${FPORT}`
+        window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
     };
 
     const navigator = useNavigate()

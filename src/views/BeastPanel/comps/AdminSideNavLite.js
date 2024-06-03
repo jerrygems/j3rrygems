@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function AdminSideNavLite() {
-    const wind = window.innerWidth < 1000 ? 'my-5' : ''
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const clr = darkMode ? 'color1' : ''
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (

@@ -5,14 +5,14 @@ import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 function InsightsPanel() {
     const [screenWidth] = useState(window.innerWidth);
     const [usersInfo, setUsersInfo] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     useEffect(() => {
         const showData = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/users/uinfo`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/users/uinfo`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

@@ -5,7 +5,7 @@ import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 
 function CardNormAdmin({ sid, title, description, strn, strn2 }) {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
@@ -20,7 +20,7 @@ function CardNormAdmin({ sid, title, description, strn, strn2 }) {
             return;
         }
         try {
-            const response = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/${strn2}/delete?sid=${sid}`, {
+            const response = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/${strn2}/delete?sid=${sid}`, {
                 method: 'delete',
                 headers: {
                     "Authorization": `${token}`

@@ -28,11 +28,11 @@ function ASBEdit() {
     const submitasbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
+            window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
         }
         console.log(token)
         console.log(asbid)
-        const url = asbid ? `${process.env.WEB_URL}:${process.env.BPORT}/asb/update` : `${process.env.WEB_URL}:${process.env.BPORT}/asb/create`
+        const url = asbid ? `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/asb/update` : `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/asb/create`
         let request = await fetch(url, {
             method: asbid ? "put" : "post",
             headers: {
@@ -58,7 +58,7 @@ function ASBEdit() {
         const fetchasbchap = async () => {
             try {
                 if (asbid && !fetched) {
-                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/asb/getasbchap/${asbid}`, {
+                    let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/asb/getasbchap/${asbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

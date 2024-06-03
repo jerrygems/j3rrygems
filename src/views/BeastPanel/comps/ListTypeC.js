@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function ListTypeB({ title, description, date }) {
-  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { darkMode } = useDarkMode();
   const cover = darkMode ? 'cover1' : 'dcover1'
   const border = darkMode ? '' : 'border'
-  const txtWhite = darkMode ? 'txt-white' : 'txt-black'
   return (
     <div className={`d-flex flex-row ${cover} ${border} rounded m-3`}>
 

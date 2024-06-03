@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useDarkMode } from '../../../../../components/Context/DarkModeProvider';
 
 function CreateAnon() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
@@ -23,9 +23,9 @@ function CreateAnon() {
     const announcer = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
+            window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
         }
-        const url = `${process.env.WEB_URL}:${process.env.BPORT}/announcements/create`
+        const url = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/announcements/create`
         let request = await fetch(url, {
             method: "post",
             headers: {

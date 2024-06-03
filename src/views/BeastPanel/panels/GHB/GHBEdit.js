@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { useDarkMode } from '../../../../components/Context/DarkModeProvider';
 
 function GHBEdit() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'

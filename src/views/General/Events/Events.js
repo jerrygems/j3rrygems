@@ -9,7 +9,7 @@ function Events() {
     useEffect(() => {
         const showEvent = async () => {
             try {
-                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/events/events`, {
+                let request = await fetch(`${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/events/events`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',

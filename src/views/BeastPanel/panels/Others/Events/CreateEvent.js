@@ -24,9 +24,9 @@ function CreateEvent() {
     const submitevent = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
+            window.location.href = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_FPORT}`
         }
-        const url = `${process.env.WEB_URL}:${process.env.BPORT}/events/create`
+        const url = `${process.env.REACT_APP_WEB_URL}:${process.env.REACT_APP_BPORT}/events/create`
         let request = await fetch(url, {
             method: "post",
             headers: {
