@@ -38,7 +38,7 @@ function NavBar() {
         setIsLoggedIn(false);
         setSignUpToggle(false);
         setLoginToggle(false);
-        window.location.href = 'http://localhost:3000/'
+        window.location.href = `${process.env.WEB_URL}:${FPORT}`
     };
 
     const navigator = useNavigate()

@@ -5,7 +5,7 @@ function Login() {
     const [pass, setPass] = useState("")
 
     const login = async () => {
-        let request = await fetch("http://localhost:5000/auth/login", {
+        let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/auth/login`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"

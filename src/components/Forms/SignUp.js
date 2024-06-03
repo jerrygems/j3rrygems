@@ -13,7 +13,7 @@ function SignUp() {
   const signUp = async (e) => {
     e.preventDefault();
     if (password === confPassword) {
-      let request = await fetch("http://localhost:5000/auth/register", {
+      let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/auth/register`, {
         method: "post",
         headers: {
           "Content-Type": "application/json"

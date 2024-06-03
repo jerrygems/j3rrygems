@@ -23,9 +23,9 @@ function CreateAnon() {
     const announcer = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
         }
-        const url = "http://localhost:5000/announcements/create"
+        const url = `${process.env.WEB_URL}:${process.env.BPORT}/announcements/create`
         let request = await fetch(url, {
             method: "post",
             headers: {

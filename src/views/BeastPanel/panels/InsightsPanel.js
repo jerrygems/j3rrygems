@@ -12,7 +12,7 @@ function InsightsPanel() {
         const showData = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://localhost:5000/users/uinfo", {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/users/uinfo`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

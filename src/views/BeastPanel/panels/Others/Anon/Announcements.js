@@ -5,15 +5,13 @@ import { useDarkMode } from '../../../../../components/Context/DarkModeProvider'
 
 function Announcements() {
     const [announcements, setAnnouncements] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const cover = darkMode ? 'cover1' : 'dcover1'
-    const border = darkMode ? '' : 'border'
+    const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     useEffect(() => {
         const showAnon = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch("http://localhost:5000/announcements/getannouncements", {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/announcements/getannouncements`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

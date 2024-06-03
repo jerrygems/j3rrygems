@@ -14,7 +14,7 @@ function ASB() {
     useEffect(() => {
         const showASB = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/asb/asbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/asb/asbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',

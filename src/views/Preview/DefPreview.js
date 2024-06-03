@@ -13,7 +13,7 @@ function DefPreview() {
     useEffect(() => {
         const showPost = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/${str1}/${str2}/${sid}`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/${str1}/${str2}/${sid}`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',

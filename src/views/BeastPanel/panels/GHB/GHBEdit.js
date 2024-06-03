@@ -28,9 +28,9 @@ function GHBEdit() {
     const submitghbchap = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
         }
-        const url = ghbid ? "http://localhost:5000/ghb/update" : "http://localhost:5000/ghb/create"
+        const url = ghbid ? `${process.env.WEB_URL}:${process.env.BPORT}/ghb/update` : `${process.env.WEB_URL}:${process.env.BPORT}/ghb/create`
         let request = await fetch(url, {
             method: ghbid ? "put" : "post",
             headers: {
@@ -56,7 +56,7 @@ function GHBEdit() {
         const fetchghbchap = async () => {
             try {
                 if (ghbid && !fetched) {
-                    let request = await fetch(`http://localhost:5000/ghb/getghbchap/${ghbid}`, {
+                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/ghb/getghbchap/${ghbid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

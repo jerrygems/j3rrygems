@@ -28,9 +28,9 @@ function BlogEdit() {
     const submitBlog = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
         }
-        const url = blogid ? "http://localhost:5000/blogs/update" : "http://localhost:5000/blogs/create"
+        const url = blogid ? `${process.env.WEB_URL}:${process.env.BPORT}/blogs/update` : `${process.env.WEB_URL}:${process.env.BPORT}/blogs/create`
         let request = await fetch(url, {
             method: blogid ? "put" : "post",
             headers: {
@@ -55,7 +55,7 @@ function BlogEdit() {
         const fetchblog = async () => {
             try {
                 if (blogid && !fetched) {
-                    let request = await fetch(`http://localhost:5000/blogs/getblog/${blogid}`, {
+                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/blogs/getblog/${blogid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",
@@ -134,7 +134,7 @@ function BlogEdit() {
                             <input type="text" className="form-control" id="keywords" onChange={(e) => setTags(e.target.value)} value={tags} />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={submitBlog}/*onClick={mode === 'Create' ? createBlog : updateBlog}*/><i className='fa fa-refresh p-1'></i>{mode}</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitBlog}><i className='fa fa-refresh p-1'></i>{mode}</button>
                 </form>
                 <br></br>
                 <div className='col'>

@@ -24,7 +24,7 @@ function App() {
 
     const checkRole = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users/check', {
+        const response = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/users/check`, {
           method: 'get',
           headers: {
             'Content-Type': 'application/json',

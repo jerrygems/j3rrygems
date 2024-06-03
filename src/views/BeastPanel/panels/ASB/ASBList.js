@@ -17,7 +17,7 @@ function ASBList() {
         const showASB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`http://localhost:5000/asb/getasbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/asb/getasbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

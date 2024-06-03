@@ -28,9 +28,9 @@ function WriteUpEdit() {
     const submitwriteup = async (e) => {
         e.preventDefault();
         if (!token) {
-            window.location.href = "http://localhost:3000"
+            window.location.href = `${process.env.WEB_URL}:${process.env.FPORT}`
         }
-        const url = writeupid ? "http://localhost:5000/writeups/update" : "http://localhost:5000/writeups/create"
+        const url = writeupid ? `${process.env.WEB_URL}:${process.env.BPORT}/writeups/update` : `${process.env.WEB_URL}:${process.env.BPORT}/writeups/create`
         let request = await fetch(url, {
             method: writeupid ? "put" : "post",
             headers: {
@@ -55,7 +55,7 @@ function WriteUpEdit() {
         const fetchwriteup = async () => {
             try {
                 if (writeupid && !fetched) {
-                    let request = await fetch(`http://localhost:5000/writeups/getwriteup/${writeupid}`, {
+                    let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/writeups/getwriteup/${writeupid}`, {
                         method: "get",
                         headers: {
                             "Content-Type": "application/json",

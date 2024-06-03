@@ -9,16 +9,14 @@ function KHBList() {
     const [currentPage, setCurrentPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)
 
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const cover = darkMode ? 'cover1' : 'dcover1'
-    const border = darkMode ? '' : 'border'
+    const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
     useEffect(() => {
         const showKHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`http://localhost:5000/khb/getkhbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/khb/getkhbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

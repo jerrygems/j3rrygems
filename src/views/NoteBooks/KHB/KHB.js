@@ -15,7 +15,7 @@ function KHB() {
     useEffect(() => {
         const showKHB = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/khb/khbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/khb/khbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Content-Type': 'application/json',

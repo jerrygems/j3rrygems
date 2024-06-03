@@ -18,7 +18,7 @@ function ListTypeB({ sid, title, description, date, strn, strn2 }) {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/${strn2}/delete?sid=${sid}`, {
+      const response = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/${strn2}/delete?sid=${sid}`, {
         method: 'delete',
         headers: {
           "Authorization": `${token}`

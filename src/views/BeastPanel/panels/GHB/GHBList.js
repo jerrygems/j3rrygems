@@ -6,7 +6,7 @@ import Paginate from '../../../../components/Paginate/Paginate'
 
 function GHBList() {
     const [ghb, setGHB] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const [currentPage, setCurrentPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)
 
@@ -15,7 +15,7 @@ function GHBList() {
         const showGHB = async () => {
             try {
                 const token = localStorage.getItem('jwt_token')
-                let request = await fetch(`http://localhost:5000/ghb/getghbchaps?page=${currentPage}`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/ghb/getghbchaps?page=${currentPage}`, {
                     method: "get",
                     headers: {
                         'Authorization': `${token}`,

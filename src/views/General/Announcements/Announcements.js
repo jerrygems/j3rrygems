@@ -3,14 +3,13 @@ import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 function Announcements() {
     const [anon, setAnon] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const cover = darkMode ? 'cover1' : 'dcover1'
     const border = darkMode ? '' : 'border'
-    const txtWhite = darkMode ? 'txt-white' : 'text-black'
     useEffect(() => {
         const showAnon = async () => {
             try {
-                let request = await fetch(`http://localhost:5000/announcements/announcements`, {
+                let request = await fetch(`${process.env.WEB_URL}:${process.env.BPORT}/announcements/announcements`, {
                     method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
