@@ -5,14 +5,17 @@ import ListNorm from '../Lists/ListNorm';
 
 function Search() {
     const { darkMode } = useDarkMode();
-    const bg = darkMode ? 'bg-dark' : 'bg-body-tertiary';
     const txtWhite = darkMode ? 'txt-white' : 'text-black';
-    const dk = darkMode ? 'dark' : 'nondark';
 
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
 
     const fetchResults = async (searchQuery) => {
+        if (!searchQuery) {
+            // If search query is empty, set results to an empty array
+            setResults([]);
+            return;
+        }
         try {
             const response = await fetch(`http://localhost:5000/api/search?key=${encodeURIComponent(searchQuery)}`);
             if (!response.ok) {
@@ -48,7 +51,7 @@ function Search() {
                 </div>
                 <div className={`mt-4`}>
                     {
-                        Array.isArray(results) && results.map((result, index) => {
+                        Array.isArray(results) && results.length > 0 ? results.map((result, index) => {
                             switch (result.source) {
                                 case "khb":
                                     return (
@@ -70,8 +73,16 @@ function Search() {
                                     return (
                                         <ListNorm key={index} sid={result._id} title={result.title} description={result.description} date={result.publicationDate} str1="writeups" str2="writeup" />
                                     )
+                                // default:
+                                //     return (
+                                //         <h2>No Results Found ;-)</h2>
+                                //     )
                             }
-                        })
+                        }) : (
+                            <>
+                                <h2 className='text-center text-secondary'>Wanna Search Something!</h2>
+                            </>
+                        )
                     }
                 </div>
             </div>
