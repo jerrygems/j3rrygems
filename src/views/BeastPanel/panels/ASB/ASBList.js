@@ -6,7 +6,7 @@ import { useDarkMode } from '../../../../components/Context/DarkModeProvider'
 
 function ASBList() {
     const [asb, setASB] = useState([])
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
 
     const [currentPage, setCurrentPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)

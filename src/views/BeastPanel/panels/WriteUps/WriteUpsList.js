@@ -9,8 +9,7 @@ function WriteUpsList() {
     const [currentPage, setCurrentPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)
 
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const cover = darkMode ? 'cover1' : 'dcover1'
+    const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     useEffect(() => {
         const showWriteup = async () => {

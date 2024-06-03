@@ -12,6 +12,7 @@ import DefPreview from '../Preview/DefPreview'
 import Announcements from '../General/Announcements/Announcements'
 import Events from '../General/Events/Events'
 import About from '../About/About'
+import Search from '../../components/Search/Search'
 
 function UserViewComp() {
     return (
@@ -27,6 +28,7 @@ function UserViewComp() {
                 <Route path='/Announcements' element={<Announcements />} />
                 <Route path='/Events' element={<Events />} />
                 <Route path='/About' element={<About />} />
+                <Route path='/Search' element={<Search />} />
                 <Route path='/:str1/:str2/:sid' element={<DefPreview />} />
             </Routes>
         </>

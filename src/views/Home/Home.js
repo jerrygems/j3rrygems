@@ -4,9 +4,7 @@ import ListNorm from '../../components/Lists/ListNorm'
 import { useDarkMode } from '../../components/Context/DarkModeProvider';
 
 function Home() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const cover = darkMode ? 'cover1' : 'dcover1'
-    const border = darkMode ? '' : 'border'
+    const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
     const [content, setContent] = useState([])

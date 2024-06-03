@@ -1,11 +1,9 @@
 import React from 'react'
-import { Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useDarkMode } from '../Context/DarkModeProvider';
 
 function WriteUpsList({ str1, str2, sid, title, description, date, author }) {
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const bg = darkMode ? 'footer' : 'bg-body-tertiary'
+    const { darkMode } = useDarkMode();
     const clr = darkMode ? 'cover1' : 'dcover1 border'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (

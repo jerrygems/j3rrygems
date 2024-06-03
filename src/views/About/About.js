@@ -2,7 +2,7 @@ import React from 'react';
 import { useDarkMode } from '../../components/Context/DarkModeProvider';
 
 function About() {
-  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { darkMode } = useDarkMode();
   const cover = darkMode ? 'cover1' : 'dcover1'
   const border = darkMode ? '' : 'border'
   const txtWhite = darkMode ? 'txt-white' : 'text-black'

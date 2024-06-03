@@ -1,11 +1,10 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useDarkMode } from '../Context/DarkModeProvider';
 
 function CardNorm({ sid, title, description, str1, str2, author }) {
     const { darkMode } = useDarkMode();
-    const bg = darkMode ? 'color1' : ''
     const cover = darkMode ? 'cover1' : 'dcover1'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (
@@ -16,8 +15,8 @@ function CardNorm({ sid, title, description, str1, str2, author }) {
                     <hr></hr>
                     <Card.Text className='text-start'>
                         {description?.substring(0, 80)}
-                        <hr/>
                     </Card.Text>
+                    <hr></hr>
                     <Card.Text className='text-start mb-3 position-absolute bottom-0'>
                         ;-) {author}
                     </Card.Text>

@@ -3,7 +3,7 @@ import { Container, Form, Nav, Navbar, NavDropdown, Button } from 'react-bootstr
 import { useDarkMode } from '../Context/DarkModeProvider';
 import Login from '../Forms/Login'
 import SignUp from '../Forms/SignUp'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function NavBar() {
     const { darkMode, toggleDarkMode } = useDarkMode();
@@ -38,8 +38,13 @@ function NavBar() {
         setIsLoggedIn(false);
         setSignUpToggle(false);
         setLoginToggle(false);
-        window.location.href='http://localhost:3000/'
+        window.location.href = 'http://localhost:3000/'
     };
+
+    const navigator = useNavigate()
+    const searchFun = () => {
+        navigator("/search")
+    }
     return (
         <Navbar expand="lg" className={`${bg} ${dk}`}>
             <Container fluid>
@@ -51,18 +56,16 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Blogs'}>Blogs</Link></Nav.Link>
-                        <Nav.Link className={`${txtWhite}`}><Link className={`${txtWhite} text-decoration-none`} to={'/Writeups'}>WriteUps</Link></Nav.Link>
+                        <Nav.Link className={`${txtWhite} text-decoration-none`} as={Link} to={'/Blogs'}>Blogs</Nav.Link>
+                        <Nav.Link className={`${txtWhite} text-decoration-none`} as={Link} to={'/Writeups'}>WriteUps</Nav.Link>
                         <NavDropdown title="Menu" id="navbarScrollingDropdown">
-                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/ASB'}>Android Security</Link></NavDropdown.Item>
-                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/KHB'}>Kernel Hacking</Link></NavDropdown.Item>
-                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Game Hacking</Link></NavDropdown.Item>
+                            <NavDropdown.Item as={Link} className={`${txtWhite} text-decoration-none`} to={'/ASB'}>Android Security</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} className={`${txtWhite} text-decoration-none`} to={'/KHB'}>Kernel Hacking</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} className={`${txtWhite} text-decoration-none`} to={'/GHB'}>Game Hacking</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item ><Link className={`${txtWhite} text-decoration-none`} to={'/about'}>About Me</Link></NavDropdown.Item>
+                            <NavDropdown.Item as={Link} className={`${txtWhite} text-decoration-none`} to={'/about'}>About Me</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className={`${txtWhite}`}>
-                            <Link className={`${txtWhite} text-decoration-none`} to={'/IRC'}>IRC</Link>
-                        </Nav.Link>
+                        {/* <Nav.Link className={`${txtWhite} text-decoration-none`} as={Link} to={'/IRC'}>IRC</Nav.Link> */}
                         {!isLoggedIn && (
                             <>
                                 <button className='m-1 btn btn-dark' onClick={signuptoggler}>Sign Up</button>
@@ -74,7 +77,8 @@ function NavBar() {
                         )}
                     </Nav>
                     <Form className="d-flex">
-                        <Button variant="outline-success" onClick={toggleDarkMode}><i className='fa fa-moon-o'></i></Button>
+                        <Button variant="outline-success m-1" onClick={toggleDarkMode}><i className='fa fa-moon-o'></i></Button>
+                        <Button variant="outline-primary m-1" onClick={searchFun}><i className='fa fa-search'></i></Button>
                     </Form>
                 </Navbar.Collapse>
                 {SignUpToggle && <SignUp />}

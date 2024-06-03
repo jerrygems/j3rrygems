@@ -1,11 +1,11 @@
 import React from 'react'
-import { ListGroup, NavLink } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
 import { useDarkMode } from '../Context/DarkModeProvider';
 import { Link } from 'react-router-dom';
 
 
 function Footer() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const bg = darkMode ? 'footer' : 'bg-body-tertiary'
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (
@@ -28,11 +28,11 @@ function Footer() {
                 <div className='d-flex flex-column text-start'>
                     {/* <small>Menu</small> */}
                     <ListGroup >
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-reddit' style={{ color: '#FF8b60' }}  > <a className={`${txtWhite}`} href='#'>Reddit  </a></i></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-github' style={{ color: '#000000' }}   > <a className={`${txtWhite}`} href='#'>Github  </a></i></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-linkedin' style={{ color: '#0077b5' }} > <a className={`${txtWhite}`} href='#'>LinkedIn</a></i></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-twitter' style={{ color: '#1DA1F2' }} > <a className={`${txtWhite}`} href='#'>Twitter </a></i></ListGroup.Item>
-                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-youtube' style={{ color: 'red' }} > <a className={`${txtWhite}`} href='#'>YouTube </a></i></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-reddit' style={{ color: '#FF8b60' }}  > <a className={`${txtWhite}`} href='https://www.reddit.com/user/Sp1d3y001/'>Reddit  </a></i></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-github' style={{ color: '#000000' }}   > <a className={`${txtWhite}`} href='https://github.com/jerrygems'>Github  </a></i></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-linkedin' style={{ color: '#0077b5' }} > <a className={`${txtWhite}`} href='https://linkedin.com/in/jerrygems'>LinkedIn</a></i></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-twitter' style={{ color: '#1DA1F2' }} > <a className={`${txtWhite}`} href='https://x.com/Shubham_lnx'>Twitter </a></i></ListGroup.Item>
+                        <ListGroup.Item className='border-0 p-1 bg-transparent'><i className='fa fa-youtube' style={{ color: 'red' }} > <a className={`${txtWhite}`} href='https://www.youtube.com/@Cyb3r.Society'>YouTube </a></i></ListGroup.Item>
                     </ListGroup>
                 </div>
             </div>

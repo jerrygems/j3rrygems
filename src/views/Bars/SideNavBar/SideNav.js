@@ -6,7 +6,7 @@ import { useDarkMode } from '../../../components/Context/DarkModeProvider';
 
 
 function SideNav() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const clr = darkMode ? 'color1' : ''
     const txtWhite = darkMode ? 'txt-white' : 'txt-black'
     return (

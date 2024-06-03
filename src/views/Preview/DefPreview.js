@@ -6,10 +6,9 @@ import { useDarkMode } from '../../components/Context/DarkModeProvider'
 function DefPreview() {
     const { str1, str2, sid } = useParams()
     const [post, setPost] = useState({})
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const { darkMode } = useDarkMode();
     const border = darkMode ? '' : 'border'
     const cover = darkMode ? 'cover1' : 'dcover1'
-    const txtWhite = darkMode ? 'txt-white' : 'txt-black'
 
     useEffect(() => {
         const showPost = async () => {
@@ -50,8 +49,8 @@ function DefPreview() {
                 <hr></hr>
                 <div className='d-flex flex-wrap m-1'>
                     {
-                        Array.isArray(post.keywords) && post.keywords.map(keyword => (
-                            <Button className='m-2' variant='dark'>{keyword}</Button>
+                        Array.isArray(post.keywords) && post.keywords.map((keyword, index) => (
+                            <Button key={index} className='m-2' variant='dark'>{keyword}</Button>
                         ))
                     }
                 </div>

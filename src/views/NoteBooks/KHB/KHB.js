@@ -9,8 +9,7 @@ function KHB() {
     const [maxPage, setMaxPage] = useState(1)
 
 
-    const { darkMode, toggleDarkMode } = useDarkMode();
-    const bg = darkMode ? 'bg-dark' : 'bg-body-tertiary'
+    const { darkMode } = useDarkMode();
     const txtWhite = darkMode ? 'txt-white' : 'text-black'
 
     useEffect(() => {
